@@ -55,6 +55,7 @@
       "City": "Turbhe Station",
       "Purchase_Price": "$200",
       "Rent": "$25",
+      "Rent_with_1_Railroads": "$20",
       "Rent_with_2_Railroads": "$50",
       "Rent_with_3_Railroads": "$100",
       "Rent_with_4_Railroads": "$200",
