@@ -4,9 +4,9 @@ import Gamecard_item_details from "../components/Gamecard_item_details"
 
 function App() {
   return (
-    <div className='h-screen w-screen flex justify-center p-5'>
-      {/* <Gamecard/> */}
-      <Gamecard_item_details></Gamecard_item_details>
+    <div className='h-screen w-screen flex justify-center p-5 relative'>
+      <Gamecard />
+      <Gamecard_item_details />
     </div>
   )
 }

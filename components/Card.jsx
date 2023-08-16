@@ -1,7 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types'; // Don't forget to import PropTypes
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { MyContext } from "../context/MyContext"
+
 
 function Card({ cardData }) {
+
+    const { currentCity } = useContext(MyContext)
+
     const {
         Card_Color,
         City,
@@ -21,8 +26,11 @@ function Card({ cardData }) {
         Mortgage_Price
     } = cardData;
 
+    const cityName = cardData.City.replace(/\s+/g, '')
+
     return (
-        <div className={`w-[300px] overflow-hidden border border-slate-500  text-center`}>
+        <div className={`w-full border border-slate-500  text-center absolute bottom-0 top-0 left-0 right-0 
+            ${(currentCity == cityName ? "visible" : "invisible")}`} >
 
             <div className='m-1'>
                 <div style={{ backgroundColor: Card_Color }} className='border border-slate-900'>
@@ -74,7 +82,7 @@ function Card({ cardData }) {
                     {
                         Hotel_Price && <p>Hotel, {Hotel_Price}.plus 4 houses</p>
                     }
-                    
+
                 </div>
             </div>
 
