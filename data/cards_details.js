@@ -1,4 +1,4 @@
- export const colors_of_properties = {
+ const colors_of_properties = {
   "Blue": "#00008B",
   "Green": "#008000",
   "Yellow": "#FFFF00",
@@ -11,7 +11,7 @@
 };
 
 
- export const card_details = {
+const card_details = {
   "cities": { 
     "Rasayani": {
       "Card_Color": "Brown",
@@ -410,125 +410,124 @@
       "Hotel_Price": "$200",
       "Mortgage_Price": "$200"
     }
-  },  
-  "chances": [
-    {
-      "title": "Advance to Go (Collect $200)",
-      "description": "Collect $200 as you pass \"Go.\""
-    },
-    {
-      "title": "Advance to Kalamboli",
-      "description": "If you pass \"Go,\" collect $200."
-    },
-    {
-      "title": "Advance to Karanjade",
-      "description": "If you pass \"Go,\" collect $200."
-    },
-    {
-      "title": "Advance to the nearest Railroad",
-      "description": "Pay owner twice the rental, if unowned, you may buy it from the Bank."
-    },
-    {
-      "title": "Advance to the nearest Railroad",
-      "description": "Pay owner twice the rental, if unowned, you may buy it from the Bank."
-    },
-    {
-      "title": "Advance to the nearest Utility",
-      "description": "If unowned, you may buy it from the Bank. If owned, throw dice and pay the owner ten times the amount thrown."
-    },
-    {
-      "title": "Bank pays you dividend of $50.",
-      "description": ""
-    },
-    {
-      "title": "Get Out of Jail Free",
-      "description": "This card may be kept until needed or sold."
-    },
-    {
-      "title": "Go Back 3 Spaces",
-      "description": "Do not pass \"Go,\" do not collect $200."
-    },
-    {
-      "title": "Go to Jail",
-      "description": "Go directly to Jail. Do not pass \"Go,\" do not collect $200."
-    },
-    {
-      "title": "Make geGhansoli repairs on all your property",
-      "description": "For each house pay $25, for each hotel $100."
-    },
-    {
-      "title": "Pay poor tax of $15.",
-      "description": ""
-    },
-    {
-      "title": "Advance to Seawoods",
-      "description": "If you pass \"Go,\" collect $200."
-    },
-    {
-      "title": "Advance to Boardwalk",
-      "description": "Advance to Boardwalk."
-    }
-  ],
-  "community_chest": [
-    {
-      "title": "Advance to Go (Collect $200)",
-      "description": "Collect $200 as you pass \"Go.\""
-    },
-    {
-      "title": "Bank error in your favor",
-      "description": "Collect $200."
-    },
-    {
-      "title": "Doctor's fees",
-      "description": "Pay $50."
-    },
-    {
-      "title": "From sale of stock you get $50.",
-      "description": ""
-    },
-    {
-      "title": "Get Out of Jail Free",
-      "description": "This card may be kept until needed or sold."
-    },
-    {
-      "title": "Go to Jail",
-      "description": "Go directly to Jail. Do not pass \"Go,\" do not collect $200."
-    },
-    {
-      "title": "Grand Opera Night",
-      "description": "Collect $50 from every player for opening night seats."
-    },
-    {
-      "title": "Holiday Fund matures",
-      "description": "Collect $100."
-    },
-    {
-      "title": "Income tax refund",
-      "description": "Collect $20."
-    },
-    {
-      "title": "It is your birthday",
-      "description": "Collect $10 from every player."
-    },
-    {
-      "title": "Life insUlewce matures",
-      "description": "Collect $100."
-    },
-    {
-      "title": "Pay hospital fees of $100.",
-      "description": ""
-    },
-    {
-      "title": "Pay school fees of $150.",
-      "description": ""
-    },
-    {
-      "title": "Receive $25 consultancy fee.",
-      "description": ""
-    },
-    {
-      "title": "You are assessed for street repairs",
-      "description": "Pay $40 per house and $115 per hotel."
-    }
-  ]
+  }
 };
+
+const chances_cards = [
+  {
+    "title": "Advance to Go (Collect $200)",
+    "description": "Collect $200 as you pass \"Go.\""
+  },
+  {
+    "title": "Advance to Kalamboli",
+    "description": "If you pass \"Go,\" collect $200."
+  },
+  {
+    "title": "Advance to Karanjade",
+    "description": "If you pass \"Go,\" collect $200."
+  },
+  {
+    "title": "Advance to the nearest Railroad",
+    "description": "Pay owner twice the rental, if unowned, you may buy it from the Bank."
+  },
+  {
+    "title": "Advance to the nearest Utility",
+    "description": "If unowned, you may buy it from the Bank. If owned, throw dice and pay the owner ten times the amount thrown."
+  },
+  {
+    "title": "Bank pays you dividend of $50.",
+    "description": ""
+  },
+  {
+    "title": "Get Out of Jail Free",
+    "description": "This card may be kept until needed or sold."
+  },
+  {
+    "title": "Go Back 3 Spaces",
+    "description": "Do not pass \"Go,\" do not collect $200."
+  },
+  {
+    "title": "Go to Jail",
+    "description": "Go directly to Jail. Do not pass \"Go,\" do not collect $200."
+  },
+  {
+    "title": "Make repairs on all your property",
+    "description": "For each house pay $25, for each hotel $100."
+  },
+  {
+    "title": "Pay poor tax of $15.",
+    "description": ""
+  },
+  {
+    "title": "Advance to Seawoods",
+    "description": "If you pass \"Go,\" collect $200."
+  },
+  {
+    "title": "Advance to Vashi",
+    "description": "Advance to Vashi."
+  }
+];
+const chest_cards =  [
+  {
+    "title": "Advance to Go (Collect $200)",
+    "description": "Collect $200 as you pass \"Go.\""
+  },
+  {
+    "title": "Bank error in your favor",
+    "description": "Collect $200."
+  },
+  {
+    "title": "Doctor's fees",
+    "description": "Pay $50."
+  },
+  {
+    "title": "From sale of stock you get $50.",
+    "description": ""
+  },
+  {
+    "title": "Get Out of Jail Free",
+    "description": "This card may be kept until needed or sold."
+  },
+  {
+    "title": "Go to Jail",
+    "description": "Go directly to Jail. Do not pass \"Go,\" do not collect $200."
+  },
+  {
+    "title": "Grand Opera Night",
+    "description": "Collect $50 from every player for opening night seats."
+  },
+  {
+    "title": "Holiday Fund matures",
+    "description": "Collect $100."
+  },
+  {
+    "title": "Income tax refund",
+    "description": "Collect $20."
+  },
+  {
+    "title": "It is your birthday",
+    "description": "Collect $10 from every player."
+  },
+  {
+    "title": "Life insUlewce matures",
+    "description": "Collect $100."
+  },
+  {
+    "title": "Pay hospital fees of $100.",
+    "description": ""
+  },
+  {
+    "title": "Pay school fees of $150.",
+    "description": ""
+  },
+  {
+    "title": "Receive $25 consultancy fee.",
+    "description": ""
+  },
+  {
+    "title": "You are assessed for street repairs",
+    "description": "Pay $40 per house and $115 per hotel."
+  }
+];
+
+export {colors_of_properties,card_details,chances_cards,chest_cards};
