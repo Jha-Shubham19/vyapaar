@@ -1,5 +1,5 @@
  const colors_of_properties = {
-  "Blue": "#00008B",
+  "Blue": "#5656f5",
   "Green": "#008000",
   "Yellow": "#FFFF00",
   "Red": "#FF0000",

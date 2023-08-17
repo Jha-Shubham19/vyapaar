@@ -29,18 +29,18 @@ function Card({ cardData }) {
     const cityName = cardData.City.replace(/\s+/g, '')
 
     return (
-        <div className={`w-full border border-slate-500  text-center absolute bottom-0 top-0 left-0 right-0 
-            ${(currentCity == cityName ? "visible" : "invisible")}`} >
+        <div className={`w-full h-full border border-slate-500  text-center absolute 
+            ${(currentCity == cityName ? "visible" : "invisible")} z-50  bg-slate-200 text-lg`} >
 
             <div className='m-1'>
                 <div style={{ backgroundColor: Card_Color }} className='border border-slate-900'>
                     <div className='py-8 px-5' >
                         <h2 className={`italic`}> TITLE DEED</h2>
-                        <h1>{City}</h1>
+                        <h1 className='font-semibold'>{City}</h1>
                     </div>
                 </div>
 
-                <div className='py-8 px-5'>
+                <div className='py-8 px-5 '>
                     {
                         Purchase_Price && <p>Purchase Price: {Purchase_Price}</p>
                     }
