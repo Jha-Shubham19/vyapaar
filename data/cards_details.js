@@ -14,7 +14,7 @@
 const card_details = {
   "cities": { 
     "Rasayani": {
-      "Card_Color": "Brown",
+      "Card_Color": "#A52A2A",
       "City": "Rasayani",
       "Purchase_Price": "$60",
       "Rent": "$2",
@@ -28,11 +28,11 @@ const card_details = {
       "Mortgage_Price": "$30"
     },
     "Community_Chest_1":{
-      "Card_Color":"Inherit",
+      "Card_Color":"inherit",
       "City":"Community Chest",
     },
     "Karjat": {
-      "Card_Color": "Brown",
+      "Card_Color": "#A52A2A",
       "City": "Karjat",
       "Purchase_Price": "$60",
       "Rent": "$4",
@@ -46,12 +46,12 @@ const card_details = {
       "Mortgage_Price": "$30"
     },
     "Income_Tax":{
-      "Card_Color":"Inherit",
+      "Card_Color":"inherit",
       "City":"Income Tax",
       "Purchase_Price": "$200",
     },
     "Turbhe Station": {
-      "Card_Color": "Inherit",
+      "Card_Color": "inherit",
       "City": "Turbhe Station",
       "Purchase_Price": "$200",
       "Rent": "$25",
@@ -62,7 +62,7 @@ const card_details = {
       "Mortgage_Price": "$100"
     },
     "Turbhe": {
-      "Card_Color": "Light_Blue",
+      "Card_Color": "#ADD8E6",
       "City": "Turbhe",
       "Purchase_Price": "$100",
       "Rent": "$6",
@@ -76,11 +76,11 @@ const card_details = {
       "Mortgage_Price": "$50"
     },
     "Chance_1":{
-      "Card_Color":"Inherit",
+      "Card_Color":"inherit",
       "City":"Chance",
     },
     "Kopar Kairane": {
-      "Card_Color": "Light_Blue",
+      "Card_Color": "#ADD8E6",
       "City": "Kopar Kairane",
       "Purchase_Price": "$100",
       "Rent": "$6",
@@ -94,7 +94,7 @@ const card_details = {
       "Mortgage_Price": "$50"
     },
     "Ghansoli": {
-      "Card_Color": "Light_Blue",
+      "Card_Color": "#ADD8E6",
       "City": "Ghansoli",
       "Purchase_Price": "$120",
       "Rent": "$8",
@@ -108,7 +108,7 @@ const card_details = {
       "Mortgage_Price": "$60"
     },
     "Airoli": {
-      "Card_Color": "Pink",
+      "Card_Color": "#FF69B4",
       "City": "Airoli",
       "Purchase_Price": "$140",
       "Rent": "$10",
@@ -122,14 +122,14 @@ const card_details = {
       "Mortgage_Price": "$70"
     },
     "Electric Company": {
-      "Card_Color": "Inherit",
+      "Card_Color": "inherit",
       "City": "Electric Company",
       "Purchase_Price": "$150",
       "Rent": "Dice roll * 4 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
       "Mortgage Price": "$75"
     },
     "Uran": {
-      "Card_Color": "Pink",
+      "Card_Color": "#FF69B4",
       "City": "Uran",
       "Purchase_Price": "$140",
       "Rent": "$10",
@@ -143,7 +143,7 @@ const card_details = {
       "Mortgage_Price": "$70"
     },
     "Ulew": {
-      "Card_Color": "Pink",
+      "Card_Color": "#FF69B4",
       "City": "Ulew",
       "Purchase_Price": "$160",
       "Rent": "$12",
@@ -157,7 +157,7 @@ const card_details = {
       "Mortgage_Price": "$80"
     },
     "Ulwe Station": {
-      "Card_Color": "Inherit",
+      "Card_Color": "inherit",
       "City": "Ulwe Station",
       "Purchase_Price": "$200",
       "Rent": "$25",
@@ -167,7 +167,7 @@ const card_details = {
       "Mortgage_Price": "$100"
     },
     "Pushpak Nagar": {
-      "Card_Color": "Orange",
+      "Card_Color": "#FFA500",
       "City": "Pushpak Nagar",
       "Purchase_Price": "$180",
       "Rent": "$14",
@@ -181,11 +181,11 @@ const card_details = {
       "Mortgage_Price": "$90"
     },
     "Community_Chest_2":{
-      "Card_Color":"Inherit",
+      "Card_Color":"inherit",
       "City":"Community Chest",
     },
     "Dronagiri": {
-      "Card_Color": "Orange",
+      "Card_Color": "#FFA500",
       "City": "Dronagiri",
       "Purchase_Price": "$180",
       "Rent": "$14",
@@ -199,7 +199,7 @@ const card_details = {
       "Mortgage_Price": "$90"
     },
     "Taloja": {
-      "Card_Color": "Orange",
+      "Card_Color": "#FFA500",
       "City": "Taloja",
       "Purchase_Price": "$200",
       "Rent": "$16",
@@ -213,7 +213,7 @@ const card_details = {
       "Mortgage_Price": "$100"
     },
     "Taloja MIDC": {
-      "Card_Color": "Red",
+      "Card_Color": "#FF0000",
       "City": "Taloja MIDC",
       "Purchase_Price": "$220",
       "Rent": "$18",
@@ -227,11 +227,11 @@ const card_details = {
       "Mortgage_Price": "$110"
     },
     "Chance_2":{
-      "Card_Color":"Inherit",
+      "Card_Color":"inherit",
       "City":"Chance",
     },
     "Kalamboli": {
-      "Card_Color": "Red",
+      "Card_Color": "#FF0000",
       "City": "Kalamboli",
       "Purchase_Price": "$220",
       "Rent": "$18",
@@ -245,7 +245,7 @@ const card_details = {
       "Mortgage_Price": "$110"
     },
     "New Panvel": {
-      "Card_Color": "Red",
+      "Card_Color": "#FF0000",
       "City": "New Panvel",
       "Purchase_Price": "$240",
       "Rent": "$20",
@@ -259,7 +259,7 @@ const card_details = {
       "Mortgage_Price": "$120"
     },
     "Panvel Station": {
-      "Card_Color": "Inherit",
+      "Card_Color": "inherit",
       "City": "Panvel Station",
       "Purchase_Price": "$200",
       "Rent": "$25",
@@ -269,7 +269,7 @@ const card_details = {
       "Mortgage_Price": "$100"
     },
     "Mansarovar": {
-      "Card_Color": "Yellow",
+      "Card_Color": "#FFFF00",
       "City": "Mansarovar",
       "Purchase_Price": "$260",
       "Rent": "$22",
@@ -283,7 +283,7 @@ const card_details = {
       "Mortgage_Price": "$130"
     },
     "Juinagar": {
-      "Card_Color": "Yellow",
+      "Card_Color": "#FFFF00",
       "City": "Juinagar",
       "Purchase_Price": "$260",
       "Rent": "$22",
@@ -297,14 +297,14 @@ const card_details = {
       "Mortgage_Price": "$130"
     },
     "Water Works": {
-      "Card_Color": "Inherit",
+      "Card_Color": "inherit",
       "City": "Water Works",
       "Purchase_Price": "$150",
       "Rent": "Dice roll * 4 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
       "Mortgage Price": "$75"
     },
     "Sanpada": {
-      "Card_Color": "Yellow",
+      "Card_Color": "#FFFF00",
       "City": "Sanpada",
       "Purchase_Price": "$280",
       "Rent": "$24",
@@ -318,7 +318,7 @@ const card_details = {
       "Mortgage_Price": "$140"
     },
     "Seawoods": {
-      "Card_Color": "Green",
+      "Card_Color": "#008000",
       "City": "Seawoods",
       "Purchase_Price": "$300",
       "Rent": "$26",
@@ -332,7 +332,7 @@ const card_details = {
       "Mortgage_Price": "$150"
     },
     "CBD Belapur": {
-      "Card_Color": "Green",
+      "Card_Color": "#008000",
       "City": "CBD Belapur",
       "Purchase_Price": "$300",
       "Rent": "$26",
@@ -346,11 +346,11 @@ const card_details = {
       "Mortgage_Price": "$150"
     },
     "Community_Chest_3":{
-      "Card_Color":"Inherit",
+      "Card_Color":"inherit",
       "City":"Community Chest",
     },
     "Nerul": {
-      "Card_Color": "Green",
+      "Card_Color": "#008000",
       "City": "Nerul",
       "Purchase_Price": "$320",
       "Rent": "$28",
@@ -364,7 +364,7 @@ const card_details = {
       "Mortgage_Price": "$160"
     },
     "Kharghar Station": {
-      "Card_Color": "Inherit",
+      "Card_Color": "inherit",
       "City": "Kharghar Station",
       "Purchase_Price": "$200",
       "Rent": "$25",
@@ -374,11 +374,11 @@ const card_details = {
       "Mortgage_Price": "$100"
     },
     "Chance_3":{
-      "Card_Color":"Inherit",
+      "Card_Color":"inherit",
       "City":"Chance",
     },
     "Kharghar": {
-      "Card_Color": "Blue",
+      "Card_Color": "#5656f5",
       "City": "Kharghar",
       "Purchase_Price": "$350",
       "Rent": "$35",
@@ -392,12 +392,12 @@ const card_details = {
       "Mortgage_Price": "$175"
     },
     "Luxary_Tax":{
-      "Card_Color":"Inherit",
+      "Card_Color":"inherit",
       "City":"Luxary Tax",
       "Purchase_Price": "$75"
     },
     "Vashi": {
-      "Card_Color": "Blue",
+      "Card_Color": "#5656f5",
       "City": "Vashi",
       "Purchase_Price": "$400",
       "Rent": "$50",

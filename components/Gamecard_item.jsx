@@ -11,7 +11,7 @@ function Gamecard_item(props) {
   };
 
   const handleMouseOut = () => {
-    setCurrentCity(null)
+    // setCurrentCity(null)
   };
 
   const { ...style_for_placement } = props.style_for_placement;
@@ -20,8 +20,8 @@ function Gamecard_item(props) {
     <div className="flex border border-black w-full h-full" style={style_for_placement}
       onMouseOver={() => handleMouseOver()} onMouseOut={() => handleMouseOut()}>
       {
-        props.property_details["f_Card_Color"] &&
-        <div style={{ backgroundColor: props.property_details["f_Card_Color"], flex: 1 }}></div>
+        props.property_details["Card_Color"] &&
+        <div style={{ backgroundColor: props.property_details["Card_Color"], flex: 1 }}></div>
       }
       <div className="flex flex-col justify-evenly" style={{ flex: 2 }}>
         <div>{props.property_details["City"]}</div>

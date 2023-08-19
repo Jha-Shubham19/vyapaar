@@ -12,8 +12,9 @@ const Gamecard_item_details = () => {
 			{
 				allDataArray.map(
 					(cardData, index) => {
-
-						return <Card cardData={cardData} key={index}></Card>
+						//show properties card only
+						return cardData.Purchase_Price && cardData.City.indexOf("Tax")==-1 ? 
+							<Card cardData={cardData} key={index} aboutToBePurchased={true}></Card> : null;
 
 					}
 				)

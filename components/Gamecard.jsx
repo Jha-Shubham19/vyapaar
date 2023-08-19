@@ -42,8 +42,8 @@ function Gamecard() {
     return [...Object.entries(card_details["cities"]).map(([key, { City, Card_Color, Purchase_Price }], ind) => {
       const eleNo = ind + 1;
       const style = make_style_for_placement(eleNo);
-      const f_Card_Color = colors_of_properties[Card_Color];
-      return <Gamecard_item key={key} property_details={{ City, f_Card_Color, Purchase_Price, eleNo }} style_for_placement={style} />;
+      
+      return <Gamecard_item key={key} property_details={{ City, Card_Color, Purchase_Price, eleNo }} style_for_placement={style} />;
     }), addFourCorners()];
   }
   return (
