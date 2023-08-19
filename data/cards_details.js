@@ -126,7 +126,7 @@ const card_details = {
       "City": "Electric Company",
       "Purchase_Price": "$150",
       "Rent": "Dice roll * 4 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
-      "Mortgage Price": "$75"
+      "Mortgage_Price": "$75"
     },
     "Uran": {
       "Card_Color": "#FF69B4",
@@ -301,7 +301,7 @@ const card_details = {
       "City": "Water Works",
       "Purchase_Price": "$150",
       "Rent": "Dice roll * 4 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
-      "Mortgage Price": "$75"
+      "Mortgage_Price": "$75"
     },
     "Sanpada": {
       "Card_Color": "#FFFF00",

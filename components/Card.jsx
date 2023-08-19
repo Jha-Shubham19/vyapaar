@@ -39,19 +39,19 @@ function Card({ cardData, aboutToBePurchased }) {
 			</div>
 			<div className='flex flex-1 justify-center pt-1'>
 
-				<div className='flex flex-col justify-between text-[0.5rem] text-gray-800 font-semibold md:text-[1rem] w-4/5'>
-					<div>
+				<div className='flex flex-col justify-evenly text-[0.5rem] font-semibold md:text-[1rem] w-4/5'>
+					<div className='text-gray-600 leading-none'>
 						{
 							Purchase_Price && <p>Purchase Price: {Purchase_Price}</p>
 						}
 						{
-							Rent && <p className='text-gray-800 font-semibold'>Rent: {Rent}</p>
-						}
-						{
-							Rent_with_1_House && <p className='text-gray-600 text-[0.3rem] md:text-[0.7rem]'>Rent are Doubled on owning all properties of same group</p>
+							Rent && <p className='font-semibold'>Rent: {Rent}</p>
 						}
 					</div>
-					<div>
+					<div className='text-gray-800'>
+						{
+							Rent_with_1_House && <p className='text-gray-600 text-[0.35rem] md:text-[0.6rem] leading-none'>Rent are Doubled on owning all properties of same group</p>
+						}
 						{
 							Rent_with_1_House && <div className='flex'>
 								<p className='flex-1 text-left'>
@@ -113,9 +113,9 @@ function Card({ cardData, aboutToBePurchased }) {
 						}
 
 					</div>
-					<div>
+					<div className='text-gray-600 leading-none'>
 						{
-							House_Price && <p className='text-[0.4rem]'>Construction {House_Price} Each</p>
+							House_Price && <p className='text-[0.35rem] md:text-[0.65rem]'>Construction {House_Price} Each</p>
 						}
 						{
 							Mortgage_Price && <p className='text-gray-600'>Mortgage: {Mortgage_Price}</p>
@@ -126,7 +126,7 @@ function Card({ cardData, aboutToBePurchased }) {
 			</div>
 			{
 				aboutToBePurchased &&
-				<div className="space-x-4 mb-[0.25rem] md:mb-[0.5rem]">
+				<div className="space-x-4 my-[0.25rem] md:my-[0.5rem]">
 					<button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-1 px-3 rounded">
 						Buy
 					</button>
