@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { MyContext } from "../context/MyContext"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faBuilding } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from 'react';
+
+// import Lottie from "lottie-react";
+// import coinShower from "../src/assets/newcoinshower.json"
 
 function Card({ cardData, aboutToBePurchased }) {
 
 	const { currentCity } = useContext(MyContext)
+
+	// const [coinShowerAnimation, setCoinShowerAnimation] = useState(false);
 
 	const {
 		Card_Color,
@@ -29,10 +34,16 @@ function Card({ cardData, aboutToBePurchased }) {
 
 	const cityName = cardData.City.replace(/\s+/g, '')
 
+	// function coinShowerHandler()
+	// 	setCoinShowerAnimation(true)
+	// }
+
+
 	return (
-		<div className={`flex flex-col justify-between border border-slate-500 text-center
-            ${(currentCity == cityName ? "block" : "hidden")} z-50  bg-slate-200`} style={{ gridArea: "4 / 6 / span 6/ span 4" }}>
-			<div style={{ backgroundColor: Card_Color }} className='border border-slate-900 text-[0.7rem] font-bold md:text-2xl'>
+		<div className={`flex flex-col justify-between border border-slate-500 text-center overflow-hidden	
+            ${(currentCity == cityName ? "block" : "hidden")}  bg-slate-200 rounded-md z-50  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]`} style={{ gridArea: "4 / 6 / span 6/ span 4" }}>
+
+			<div style={{ backgroundColor: Card_Color }} className='border border-y-slate-500 text-[0.7rem] font-bold md:text-2xl'>
 				<div className='py-[0.5rem]' >
 					<h1 className='font-semibold'>{City}</h1>
 				</div>
@@ -122,19 +133,25 @@ function Card({ cardData, aboutToBePurchased }) {
 						}
 					</div>
 
+
 				</div>
 			</div>
+
 			{
 				aboutToBePurchased &&
-				<div className="space-x-4 mb-[0.25rem] md:mb-[0.5rem]">
-					<button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-1 px-3 rounded">
+				<div className="space-x-4 mb-[0.25rem] md:mb-[0.5rem] mx-auto">
+					{/* {
+						coinShowerAnimation && <Lottie animationData={coinShower} autoplay={true} loop={false} style={{ width: '100px', height: '100px', backgroundColor: '' }} ></Lottie>
+					} */}
+					<button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-1 px-3 rounded" onClick={() => coinShowerHandler()}>
 						Buy
 					</button>
-					<button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 rounded">
+					<button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 rounded" onClick={() => coinShowerHandler()}>
 						Sell
 					</button>
 				</div>
 			}
+
 		</div>
 	);
 }

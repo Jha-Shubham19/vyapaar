@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
-import Gamecard from '../components/Gamecard'
-import {chances_cards} from '../data/cards_details';
-import Dice from '../components/Dice';
+import Gamecard from './components/Gamecard'
+import {chances_cards} from './data/cards_details';
+import Dice from './components/Dice';
 
 function App() {
   

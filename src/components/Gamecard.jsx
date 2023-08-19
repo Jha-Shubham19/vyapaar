@@ -2,7 +2,9 @@ import React from 'react'
 import { card_details, colors_of_properties } from '../data/cards_details';
 import Gamecard_item from './Gamecard_item';
 import Chance_n_Chest_Card from './Chance_n_Chest_Card';
-import Gamecard_item_details from "../components/Gamecard_item_details"
+import Gamecard_item_details from "./Gamecard_item_details"
+// import Lottie from "lottie-react";
+// import centerCoin from "../src/assets/center-coin.json"
 
 function Gamecard() {
 
@@ -42,18 +44,22 @@ function Gamecard() {
     return [...Object.entries(card_details["cities"]).map(([key, { City, Card_Color, Purchase_Price }], ind) => {
       const eleNo = ind + 1;
       const style = make_style_for_placement(eleNo);
-      
+
       return <Gamecard_item key={key} property_details={{ City, Card_Color, Purchase_Price, eleNo }} style_for_placement={style} />;
     }), addFourCorners()];
   }
   return (
     <div className='grid text-center w-auto text-[0.4rem] aspect-square lg:h-auto lg:w-min lg:text-[0.65rem]' style={{ gridTemplateColumns: "repeat(13, 1fr)", gridTemplateRows: "repeat(13, 1fr)", gridAutoRows: "calc(100%/13)", gridAutoColumns: "calc(100%/13)", }}>
     
-      <Gamecard_item_details />
+    
+      <Gamecard_item_details/>
       {
         function_call()
       }
-      <Chance_n_Chest_Card />
+      {/* <Chance_n_Chest_Card /> */}
+
+      {/* coin animation*/}
+      {/* <Lottie animationData={centerCoin} /> */} 
 
       {/* <p style = {{gridColumn: "1 / span 2", gridRow: "1 / span 1",flexDirection:"row-reverse" , fontSize:""}} ></p> */}
     </div>
