@@ -38,7 +38,7 @@ function AddDots({ number }) {
 		]
 	};
 	return (
-		<div className="w-[3rem] h-[3rem] relative m-1 rounded-xl shadow-md border border-green-800">
+		<div className="w-[3rem] h-[3rem] mt-4 relative m-1 rounded-xl shadow-md border border-green-800">
 			{
 				dotPositionMatrix[number].map(([__top, __left], ind) => {
 					__top += '%'; __left += '%';

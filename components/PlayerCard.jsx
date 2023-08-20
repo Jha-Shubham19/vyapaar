@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { BiUserCircle } from "react-icons/bi";
 import moneyImage from "../media/money.png";
 
-const PlayerCard = ({ avatar }, { playerNo }) => {
+const PlayerCard = (props) => {
+  let avatar = props.avatar;
+  let playerNo = props.playerNo;
   const [money, setMoney] = useState(1000);
   return (
-    <div className="border rounded-lg  max-w-full mx-2 my-1 flex flex-row bg-[#6581ff] bg-gradient-to-l from-transparent via-blue-500 to-cyan-400">
+    <div className="border rounded-lg  w-[350px] mx-2 my-1 flex flex-row bg-[#6581ff] bg-gradient-to-l from-transparent via-blue-500 to-cyan-400">
       <div className="rounded-full bg-red-400  w-[80px] h-[80px] m-2">
         <img className="rounded-full object-cover w-full h-full" src={avatar} />
       </div>

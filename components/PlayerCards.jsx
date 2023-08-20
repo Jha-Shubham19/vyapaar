@@ -7,23 +7,27 @@ import avatar3 from "../media/avatar_3.jpg";
 import avatar4 from "../media/avatar_4.png";
 import { MyContext } from '../context/MyContext';
 
-const PlayerCards = () => {
+const PlayerCards = (props) => {
+  let playerSelected = props.playerSelected;
   
-  const playerCount = useContext(MyContext);
-  console.log("no of players are "+ playerCount)
+  let playerCount = props.playerCount;
+  console.log("player selected value in player cards "+playerSelected);
+  console.log("playr count ki value "+playerCount);
+  
   const avatars = [avatar1, avatar2, avatar3, avatar4];
   let playerCard = [];
   for (let i = 0; i < playerCount; i++) {
+    console.log("run hua")
     playerCard.push(i);
   }
   
   return (
-    (<div className="">yaha cards render nahi ho rhaa hai
+    (<div className="">
     
     <div className="">
         
         {playerCard.map((i) => {
-          return <PlayerCard  playerNo={i + 1} avatar={avatars[i]} />;
+          return <PlayerCard key={i}  playerNo={i + 1} avatar={avatars[i]} />;
         })}
     </div>
     

@@ -16,11 +16,15 @@ function App() {
       <Gamecard />
 
       <div>
+      
         <Dice />
+      
+        <div className="w-[400px] mt-10">
+        {playerSelected ? <PlayerCards playerCount={playerCount} playerSelected={playerSelected} setPlayerSelected={setPlayerSelected}/> :
+      <PlayerMenu setPlayerCount={setPlayerCount} setPlayerSelected={setPlayerSelected} playerSelected={playerSelected}/>}
+        </div>
+      
       </div>
-
-      {playerSelected ? <PlayerCards playerCount={playerCount} playerSelected={playerSelected} setPlayerSelected={setPlayerSelected}/> :
-      <PlayerMenu setPlayerCount={setPlayerCount} setPlayerSelected={setPlayerSelected}/>}
     </div>
   );
 }
