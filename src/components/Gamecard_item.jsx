@@ -23,24 +23,27 @@ function Gamecard_item(props) {
   const { ...style_for_placement } = props.style_for_placement;
 
   return (
-    <div className="flex border border-black w-full h-full" style={style_for_placement}
+    <div className="flex w-full h-full" style={style_for_placement}
       onMouseOver={() => handleMouseOver()} onMouseOut={() => handleMouseOut()}>
       {
         props.property_details["Card_Color"] &&
-        <div className="border-stone-950	border" style={{ backgroundColor: cardBgColor, flex: 1 }}></div>
+        <div className="" style={{ backgroundColor: cardBgColor, flex: 1 }}></div>
       }
-      <div className="flex flex-col justify-evenly" style={{ flex: 2 }}>
-        <div className='flex  gap-1 pl-2 justify-center	items-center	flex-wrap'>
-          <FontAwesomeIcon key="player-1" icon={faUserTie} className='text-lg text-red-500 '/>
-          <FontAwesomeIcon key="player-2" icon={faUserTie} className='text-lg text-blue-500'/>
-          <FontAwesomeIcon key="player-3" icon={faUserTie} className='text-lg text-green-500'/>
-          <FontAwesomeIcon key="player-4" icon={faUserTie} className='text-lg text-yellow-500'/>
+      <div className="flex relative flex-col justify-evenly" style={{ flex: 2 }}>
+        
+        <div className={`absolute text-[0.5rem] md:text-[1rem] top-0 left-0 w-full h-full flex justify-center gap-[0.1rem] flex-wrap items-center ${(Math.floor((props.property_details.eleNo - 1) / 9) & 1 || !props.property_details.eleNo) ? 'flex-row' : 'flex-col'}`} >
+
+          <FontAwesomeIcon key="player-1" icon={faUserTie} className={`${!props.property_details.eleNo ? 'relative top-3/4 self-start' : ''} text-red-500`} />
+          <FontAwesomeIcon key="player-2" icon={faUserTie} className={`${!props.property_details.eleNo ? 'relative top-3/4 self-start' : ''} text-blue-500`} />
+          <FontAwesomeIcon key="player-3" icon={faUserTie} className={`${!props.property_details.eleNo ? 'relative top-3/4 self-start' : ''} text-green-500`} />
+          <FontAwesomeIcon key="player-4" icon={faUserTie} className={`${!props.property_details.eleNo ? 'relative top-3/4 self-start' : ''} text-yellow-500`} />
+
         </div>
 
-        <div>{props.property_details["City"]}</div>
+        <div className='font-bold'>{props.property_details["City"]}</div>
         {
           props.property_details["Purchase_Price"] &&
-          <div>{props.property_details["Purchase_Price"]}</div>
+          <div className='font-bold'>{props.property_details["Purchase_Price"]}</div>
         }
       </div>
     </div>

@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { MyContext } from "../context/MyContext"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faBuilding } from '@fortawesome/free-solid-svg-icons';
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 
 // import Lottie from "lottie-react";
-// import coinShower from "../src/assets/newcoinshower.json"
+// import coinShower from "../assets/newcoinshower.json"
 
 function Card({ cardData, aboutToBePurchased }) {
 
@@ -34,7 +34,7 @@ function Card({ cardData, aboutToBePurchased }) {
 
 	const cityName = cardData.City.replace(/\s+/g, '')
 
-	// function coinShowerHandler()
+	// function coinShowerHandler(){
 	// 	setCoinShowerAnimation(true)
 	// }
 
