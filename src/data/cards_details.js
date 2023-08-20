@@ -1,10 +1,10 @@
  const colors_of_properties = {
+   "Red": "#FF0000",
+   "Pink": "#FF69B4",
   "Blue": "#5656f5",
   "Green": "#008000",
   "Yellow": "#FFFF00",
-  "Red": "#FF0000",
   "Orange": "#FFA500",
-  "Pink": "#FF69B4",
   "Light_Blue": "#ADD8E6",
   "Brown": "#A52A2A",
   "Inherit":"inherit",

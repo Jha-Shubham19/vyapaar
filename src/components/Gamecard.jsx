@@ -6,7 +6,7 @@ import Gamecard_item_details from "./Gamecard_item_details"
 // import Lottie from "lottie-react";
 // import centerCoin from "../assets/newcoinshower.json"
 
-function Gamecard() {
+function Gamecard(props) {
 
   const make_style_for_placement = (eleNo) => {
     let resulting_style = {};
@@ -38,10 +38,10 @@ function Gamecard() {
   const addFourCorners = () => {
     const border = '1px solid black';
     let entriess = [
-      <Gamecard_item key={"Free Parking"} font={'text-[0.55rem] lg:text-[1rem]'} property_details={{ City: "Free Parking" }} style_for_placement={{ gridRow: `1 / span 2`, gridColumn: `1 / span 2` , borderRight:border,}} />,
-      <Gamecard_item key={"Go To Jail"} font={'text-[0.55rem] lg:text-[1rem]'} property_details={{ City: "Go To Jail" }} style_for_placement={{ gridRow: `1 / span 2`, gridColumn: `12 / span 2`, borderBottom:border,}} />,
-      <Gamecard_item key={"Go"} font={'text-[0.55rem] lg:text-[1rem]'} property_details={{ City: "Go" }} style_for_placement={{ gridRow: `12 / span 2`, gridColumn: `12 / span 2`, borderLeft:border,}} />,
-      <Gamecard_item key={"Jail"} font={'text-[0.55rem] lg:text-[1rem]'} property_details={{ City: "Jail" }} style_for_placement={{ gridRow: `12 / span 2`, gridColumn: `1 / span 2`, borderTop:border,}} />,
+      <Gamecard_item key={"Free Parking"} property_details={{ City: "Free Parking" }} style_for_placement={{ gridRow: `1 / span 2`, gridColumn: `1 / span 2` , borderRight:border,}} />,
+      <Gamecard_item key={"Go To Jail"} property_details={{ City: "Go To Jail" }} style_for_placement={{ gridRow: `1 / span 2`, gridColumn: `12 / span 2`, borderBottom:border,}} />,
+      <Gamecard_item key={"Go"} playerCount={props.playerCount} property_details={{ City: "Go" }} style_for_placement={{ gridRow: `12 / span 2`, gridColumn: `12 / span 2`, borderLeft:border,}} />,
+      <Gamecard_item key={"Jail"} property_details={{ City: "Jail" }} style_for_placement={{ gridRow: `12 / span 2`, gridColumn: `1 / span 2`, borderTop:border,}} />,
     ];
     return entriess;
   }

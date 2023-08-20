@@ -5,11 +5,12 @@ export const MyContext = createContext();
 
 export default function ContextProvider({ children }) {
 
-    const [currentCity, setCurrentCity] = useState(null)
-
+    const [currentCity, setCurrentCity] = useState(null);
+    
     const value = {
         currentCity,
-        setCurrentCity
+        setCurrentCity,
+        
     }
 
     return (<MyContext.Provider value={value}>
