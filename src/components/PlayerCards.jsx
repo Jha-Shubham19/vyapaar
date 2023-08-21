@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect } from 'react';
 
 import PlayerCard from "./PlayerCard";
 import avatar1 from "../media/avatar_1.jpeg";
@@ -6,8 +6,13 @@ import avatar2 from "../media/avatar_2.png";
 import avatar3 from "../media/avatar_3.jpg";
 import avatar4 from "../media/avatar_4.png";
 import { MyContext } from '../context/MyContext';
+import {PlayersContext} from '../context/PlayersContext';
 
 const PlayerCards = (props) => {
+  const {setAllPlayersData} = useContext(PlayersContext);
+  useEffect(() => {
+    setAllPlayersData(Array.from({length:playerCount},(v,ind)=> {return { playerNumber:ind+1, currentPosition: 1, cashAvailable: 1000 }}));
+  }, []);
   let playerSelected = props.playerSelected;
   
   let playerCount = props.playerCount;
