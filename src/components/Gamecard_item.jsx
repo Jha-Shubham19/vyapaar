@@ -27,7 +27,7 @@ function Gamecard_item(props) {
   const { ...style_for_placement } = props.style_for_placement;
 
   return (
-    <div className="flex w-full h-full" style={style_for_placement}
+    <div className="flex w-full h-full font-mono" style={style_for_placement}
       onMouseOver={() => handleMouseOver()} onMouseOut={() => handleMouseOut()}>
       {
         props.property_details["Card_Color"] &&

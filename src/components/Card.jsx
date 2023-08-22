@@ -40,7 +40,7 @@ function Card({ cardData, aboutToBePurchased }) {
 
 
 	return (
-		<div className={`flex flex-col justify-between border border-slate-500 text-center overflow-hidden	
+		<div className={`flex flex-col justify-between border font-mono border-slate-500 text-center overflow-hidden	
             ${(currentCity == cityName ? "block" : "hidden")}  bg-slate-200 rounded-md z-50  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]`} style={{ gridArea: "4 / 6 / span 6/ span 4" }}>
 
 			<div style={{ backgroundColor: Card_Color }} className='border border-y-slate-500 text-[0.7rem] font-bold md:text-2xl'>
