@@ -10,16 +10,11 @@ const PlayerMenu = (props) => {
 
   const [buttonClicked, setButtonClicked] = useState(2);
 
-  useEffect(() => {
-    // This effect runs whenever buttonClicked state changes
-    console.log("button clicked ->", buttonClicked);
-  }, [buttonClicked]);
 
   function changeHandler(event) {
     const totalPlayerSelected = event.target.value;
     setPlayerCount(totalPlayerSelected);
     setButtonClicked(totalPlayerSelected);
-    console.log("player count value " + event.target.value);
   }
 
   // const [LabelSelected, setLabelSelected] = useState(2);

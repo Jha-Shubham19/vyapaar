@@ -6,8 +6,20 @@ const PlayerCard = (props) => {
   let avatar = props.avatar;
   let playerNo = props.playerNo;
   const [money, setMoney] = useState(1000);
+
+  const playerColor = playerNo == 1 ? "red" : playerNo == 2 ? "#FF6EB4" : playerNo ==3 ? "#0000FF" : "#00CD00"
+  // const borderStyle =` border-4 border-${playerColor}-200 border-b-${playerColor}-500`
+  const borderStyle = {
+    border: `6px solid ${playerColor}`,
+    borderBottom: `6px solid ${playerColor}`,
+    borderStyle: `inset`
+  };
+
+  console.log("corder -->" ,playerColor," ",typeof(playerColor));
+
   return (
-    <div className="border rounded-lg  w-[350px] mx-2 my-1 flex flex-row bg-[#6581ff] bg-gradient-to-l from-transparent via-blue-500 to-cyan-400">
+    <div className={`rounded-lg  w-[350px] mx-2 my-1 flex flex-row bg-[#6581ff] bg-gradient-to-l from-transparent via-blue-500 to-cyan-400
+     `} style={borderStyle}>
       <div className="rounded-full bg-red-400  w-[80px] h-[80px] m-2">
         <img className="rounded-full object-cover w-full h-full" src={avatar} />
       </div>

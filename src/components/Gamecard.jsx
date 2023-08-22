@@ -3,6 +3,7 @@ import { card_details, colors_of_properties } from '../data/cards_details';
 import Gamecard_item from './Gamecard_item';
 import Chance_n_Chest_Card from './Chance_n_Chest_Card';
 import Gamecard_item_details from "./Gamecard_item_details"
+import "../media/jail.svg"
 // import Lottie from "lottie-react";
 // import centerCoin from "../assets/newcoinshower.json"
 

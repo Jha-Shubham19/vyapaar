@@ -24,7 +24,7 @@ const PlayerCards = (props) => {
   return (
     (<div className="">
     
-    <div className="">
+    <div className="flex gap-2 flex-col	">
         
         {playerCard.map((i) => {
           return <PlayerCard key={i}  playerNo={i + 1} avatar={avatars[i]} />;
