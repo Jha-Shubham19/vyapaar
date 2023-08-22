@@ -1,10 +1,10 @@
 import React, { useContext,useEffect } from 'react';
 
 import PlayerCard from "./PlayerCard";
-import avatar1 from "../media/avatar_1.jpeg";
-import avatar2 from "../media/avatar_2.png";
-import avatar3 from "../media/avatar_3.jpg";
-import avatar4 from "../media/avatar_4.png";
+import avatar1 from "../media/user-4.svg";
+import avatar2 from "../media/user-1.svg";
+import avatar3 from "../media/user-3.svg";
+import avatar4 from "../media/user-2.svg";
 import { MyContext } from '../context/MyContext';
 import {PlayersContext} from '../context/PlayersContext';
 

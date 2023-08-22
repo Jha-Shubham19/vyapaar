@@ -8,6 +8,9 @@ export default {
   theme: {
     extend: {
       borderWidth: ['active'],
+      fontFamily: {
+        mono: ['Space Mono', 'monospace'],
+      },
     },
   },
   plugins: [],

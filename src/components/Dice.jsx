@@ -39,6 +39,8 @@ function Dice() {
 			setWhosTurn(prev => (prev+1)%(allPlayersData.length));
 			setBeat(prev => !prev);
 		}
+
+		setIsIntervalRunning(prev => !prev);
 	}, [totalSumOnDice]);
 
 
@@ -63,15 +65,15 @@ function Dice() {
 
 		setTimeout(() => {
 			clearInterval(interval);
-			setIsIntervalRunning(prev => !prev);
+			
 		}, 800);
 	}
 
 	return (
 		<div className="flex justify-center my-2">
 			<div className='flex' onClick={handleClick}>
-				<FontAwesomeIcon key={0} icon={diceIcons[numberOnDices[0]]} beat={beat} className='text-[3rem] m-2' />
-				<FontAwesomeIcon key={1} icon={diceIcons[numberOnDices[1]]} beat={beat} className='text-[3rem] m-2' />
+				<FontAwesomeIcon key={0} icon={diceIcons[numberOnDices[0]]} beat={beat} className='text-[3rem] m-2 text-slate-100' />
+				<FontAwesomeIcon key={1} icon={diceIcons[numberOnDices[1]]} beat={beat} className='text-[3rem] m-2 text-slate-100' />
 			</div>
 		</div>
 	)

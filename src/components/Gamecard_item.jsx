@@ -33,11 +33,11 @@ function Gamecard_item(props) {
         props.property_details["Card_Color"] &&
         <div className="" style={{ backgroundColor: cardBgColor, flex: 1 }}></div>
       }
-      <div className="flex relative flex-col justify-evenly" style={{ flex: 2 }}>
-        <div className={`absolute text-[0.5rem] md:text-[1rem] top-0 left-0 w-full h-full flex justify-center gap-[0.1rem] flex-wrap items-center ${(Math.floor((props.property_details.eleNo-1) / 10) & 1 || props.property_details.eleNo%10 === 1) ? 'flex-row' : 'flex-col'}`} >
+      <div className="flex relative bg-slate-200 flex-col justify-evenly" style={{ flex: 2 }}>
+        <div className={`absolute  text-black text-[0.5rem] md:text-[1rem] top-0 left-0 w-full h-full flex justify-center gap-[0.1rem] flex-wrap items-center ${(Math.floor((props.property_details.eleNo-1) / 10) & 1 || props.property_details.eleNo%10 === 1) ? 'flex-row' : 'flex-col'}`} >
           {
             allPlayersData.filter(val => props.property_details.eleNo === val.currentPosition).map(val => {
-              return <FontAwesomeIcon key={`player-${val.playerNumber}`} icon={faUserTie} className={`${props.property_details.eleNo%10 === 1 ? 'relative top-3/4 self-start' : ''}`} style={{ color: colors_of_properties_array[val.playerNumber - 1] }} />
+              return <FontAwesomeIcon key={`player-${val.playerNumber}`} icon={faUserTie} className={`${props.property_details.eleNo%10 === 1 ? 'relative top-3/4 self-start' : ''} 	text-slate-100`} style={{ color: colors_of_properties_array[val.playerNumber - 1] }} />
             })
           }
         </div>

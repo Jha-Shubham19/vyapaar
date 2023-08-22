@@ -12,7 +12,9 @@ function App() {
   console.log("from app value of playerselected is " + playerSelected);
 
   return (
-    <div className="h-screen w-screen flex flex-col md:flex-row md:justify-evenly md:p-1">
+    <div className="lg:h-screen flex max-lg:flex-col md:justify-evenly md:p-1 gap-8 bg-cover bg-center bg-no-repeat -z-50" style={{backgroundImage:"url('../src/media/main-bg.svg')",backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',}}>
       <Gamecard/>
 
       <div className="flex flex-wrap	justify-around items-center	 flex-col gap-2 sm:min-h-[calc(calc(100vh-100vw)/2)] md:min-w-[calc(calc(100vw-100vh)/2)]">
