@@ -2,6 +2,12 @@ import React, { useContext, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiceOne, faDiceTwo, faDiceThree, faDiceFour, faDiceFive, faDiceSix } from '@fortawesome/free-solid-svg-icons';
 import { PlayersContext } from '../context/PlayersContext';
+import diceOne from '../media/dices/die-1.svg'
+import diceTwo from '../media/dices/die-2.svg'
+import diceThree from '../media/dices/die-3.svg'
+import diceFour from '../media/dices/die-4.svg'
+import diceFive from '../media/dices/die-5.svg'
+import diceSix from '../media/dices/die-6.svg'
 
 function Dice() {
 	const [numberOnDices, setNumberOnDices] = useState([6, 6]);
@@ -46,12 +52,12 @@ function Dice() {
 
 	const diceIcons = [
 		null, // for 1-based indexing
-		faDiceOne,
-		faDiceTwo,
-		faDiceThree,
-		faDiceFour,
-		faDiceFive,
-		faDiceSix
+		diceOne,
+		diceTwo,
+		diceThree,
+		diceFour,
+		diceFive,
+		diceSix
 	];
 	const getRandomDiceNumber = () => Math.floor(Math.random() * 5) + 1;
 
@@ -72,8 +78,10 @@ function Dice() {
 	return (
 		<div className="flex justify-center my-2">
 			<div className='flex' onClick={handleClick}>
-				<FontAwesomeIcon key={0} icon={diceIcons[numberOnDices[0]]} beat={beat} className='text-[3rem] m-2 text-slate-100' />
-				<FontAwesomeIcon key={1} icon={diceIcons[numberOnDices[1]]} beat={beat} className='text-[3rem] m-2 text-slate-100' />
+				<div  key={0}><img src={diceIcons[numberOnDices[0]]} alt="" /></div>
+				<div  key={1}><img src={diceIcons[numberOnDices[1]]} alt="" /></div>
+				{/* <FontAwesomeIcon key={0} icon={diceIcons[numberOnDices[0]]} beat={beat} className='text-[3rem] m-2 text-slate-100' />
+				<FontAwesomeIcon key={1} icon={diceIcons[numberOnDices[1]]} beat={beat} className='text-[3rem] m-2 text-slate-100' /> */}
 			</div>
 		</div>
 	)

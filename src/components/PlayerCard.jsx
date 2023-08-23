@@ -21,7 +21,7 @@ const PlayerCard = (props) => {
 
   return (
     <div className={`rounded-lg  w-[350px] mx-2 my-1 flex flex-row bg-[#071277] bg-gradient-to-l from-transparent via-[#3744ba] to-[#071277 ]
-      ${(whosTurn+1 == playerNo) ? "animate-scale-in-out" : "" } `} style={borderStyle} >
+      ${(whosTurn+1 == playerNo) ? "animate-scale-in-out" : "shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]" } `} style={borderStyle} >
       <div className="rounded-full w-[80px] h-[80px] m-2 z-10" style={{ backgroundImage: `url(${avatar})`, backgroundSize: "cover",}} >
       </div>
 

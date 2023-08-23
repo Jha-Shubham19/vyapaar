@@ -5,19 +5,12 @@ import Chance_n_Chest_Card from './Chance_n_Chest_Card';
 import Gamecard_item_details from "./Gamecard_item_details"
 import { MyContext } from '../context/MyContext';
 
-// import Lottie from "lottie-react";
-// import centerCoin from "../assets/newcoinshower.json"
-
 function Gamecard(props) {
 
   const { currentCity } = useContext(MyContext);
 
-  const handleMouseClick = () =>{
-    // setCurrentCity(null) 
-  }
 
   const make_style_for_placement = (eleNo) => {
-    // console.log(eleNo);
     let resulting_style = {};
     const border = '1px solid black';
     if (eleNo >= 2 && eleNo <= 10)
@@ -63,7 +56,8 @@ function Gamecard(props) {
     }), addFourCorners()];
   }
   return (
-    <div className={`grid border border-black text-center w-auto text-[0.4rem] aspect-square lg:h-auto lg:w-min lg:text-[0.65rem] ${currentCity ? "backdrop-blur-sm" : ""}`} style={{ gridTemplateColumns: "repeat(13, 1fr)", gridTemplateRows: "repeat(13, 1fr)", gridAutoRows: "calc(100%/13)", gridAutoColumns: "calc(100%/13)", }}
+    <div className={`grid border border-black text-center w-auto text-[0.4rem] aspect-square lg:h-auto lg:w-min lg:text-[0.65rem] ${currentCity ? "backdrop-blur-sm" : ""}
+    shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-sm overflow-hidden`} style={{ gridTemplateColumns: "repeat(13, 1fr)", gridTemplateRows: "repeat(13, 1fr)", gridAutoRows: "calc(100%/13)", gridAutoColumns: "calc(100%/13)", }}
       >
 
 
@@ -72,9 +66,6 @@ function Gamecard(props) {
         function_call()
       }
       {/* <Chance_n_Chest_Card /> */}
-
-      {/* coin animation*/}
-      {/* <Lottie animationData={centerCoin} /> */}
 
       {/* <p style = {{gridColumn: "1 / span 2", gridRow: "1 / span 1",flexDirection:"row-reverse" , fontSize:""}} ></p> */}
     </div>

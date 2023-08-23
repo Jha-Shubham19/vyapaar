@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { colors_of_properties } from '../data/cards_details';
 import { PlayersContext } from '../context/PlayersContext';
+import img from "../media/cards/prisoner.svg"
 
 function Gamecard_item(props) {
 
@@ -43,6 +44,11 @@ function Gamecard_item(props) {
         </div>
 
         <div className='font-bold'>{props.property_details["City"]}</div>
+
+        {/* <div className='h-[20px]'>
+          <img src={img} alt="" className='h-full w-full'/>
+        </div> */}
+
         {
           props.property_details["Purchase_Price"] &&
           <div className='font-bold'>{props.property_details["Purchase_Price"]}</div>
