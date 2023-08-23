@@ -28,13 +28,13 @@ function Gamecard_item(props) {
   const { ...style_for_placement } = props.style_for_placement;
 
   return (
-    <div className="flex w-full h-full font-mono" style={style_for_placement}
+    <div className="flex w-full h-full rounded-sm font-mono overflow-hidden" style={style_for_placement}
       onMouseOver={() => handleMouseOver()} onMouseOut={() => handleMouseOut()}>
       {
-        props.property_details["Card_Color"] &&
+        props.property_details["Card_Color"] && (cardBgColor != '#FFFFFF') &&
         <div className="" style={{ backgroundColor: cardBgColor, flex: 1 }}></div>
       }
-      <div className="flex relative bg-slate-200 flex-col justify-evenly" style={{ flex: 2 }}>
+      <div className="flex relative bg-[#FFFFFF] flex-col justify-evenly" style={{ flex: 2 }}>
         <div className={`absolute  text-black text-[0.5rem] md:text-[1rem] top-0 left-0 w-full h-full flex justify-center gap-[0.1rem] flex-wrap items-center ${(Math.floor((props.property_details.eleNo-1) / 10) & 1 || props.property_details.eleNo%10 === 1) ? 'flex-row' : 'flex-col'}`} >
           {
             allPlayersData.filter(val => props.property_details.eleNo === val.currentPosition).map(val => {

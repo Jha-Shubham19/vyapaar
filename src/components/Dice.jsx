@@ -28,8 +28,8 @@ function Dice() {
 	}
 
 	return (
-		<div className="flex justify-center my-2">
-			<div className='flex' onClick={beat ? handleClick : () => { }}>
+		<div className="flex justify-center my-2 cursor-pointer">
+			<div className='flex  gap-2' onClick={beat ? handleClick : () => { }}>
 				<div key={0}><img src={diceIcons[numberOnDices[0]]} alt="" /></div>
 				<div key={1}><img src={diceIcons[numberOnDices[1]]} alt="" /></div>
 			</div>

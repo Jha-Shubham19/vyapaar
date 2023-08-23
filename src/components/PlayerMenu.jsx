@@ -75,7 +75,7 @@ const PlayerMenu = (props) => {
           }`}>4</label>
       </div>
       <div className="flex justify-center items-center border-white mt-4">
-        <button className="m-4 px-5 text-3xl active:border-2 active:border-white   text-black bg-green-300 p-2 rounded-xl " onClick={clickHandler}>
+        <button className="cursor-pointer m-4 px-5 text-3xl active:border-2 active:border-white   text-black bg-green-300 p-2 rounded-xl " onClick={clickHandler}>
           Start Game
         </button>
       </div>

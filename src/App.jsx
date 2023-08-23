@@ -12,7 +12,7 @@ function App() {
   console.log("from app value of playerselected is " + playerSelected);
 
   return (
-    <div className="lg:h-screen flex max-lg:flex-col md:justify-evenly md:p-1 gap-8 bg-cover bg-center bg-no-repeat -z-50" style={{backgroundImage:"url('../src/media/main-bg.svg')",backgroundSize: 'cover',
+    <div className="lg:h-screen flex max-lg:flex-col md:justify-evenly md:p-1 gap-8 bg-cover bg-center bg-no-repeat -z-50 cursor-retro" style={{backgroundImage:"url('../src/media/main-bg.svg')",backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',}}>
       <Gamecard/>
