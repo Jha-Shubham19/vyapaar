@@ -56,7 +56,7 @@ function Gamecard(props) {
     }), addFourCorners()];
   }
   return (
-    <div className={`grid border border-black text-center w-auto text-[0.4rem] aspect-square lg:h-auto lg:w-min lg:text-[0.65rem] ${currentCity ? "backdrop-blur-sm" : ""}
+    <div className={`grid border border-black text-center w-auto text-[0.4rem] aspect-square lg:h-auto lg:w-min lg:text-[0.65rem] ${currentCity ? "" : ""}
     shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-sm overflow-hidden`} style={{ gridTemplateColumns: "repeat(13, 1fr)", gridTemplateRows: "repeat(13, 1fr)", gridAutoRows: "calc(100%/13)", gridAutoColumns: "calc(100%/13)", }}
       >
 

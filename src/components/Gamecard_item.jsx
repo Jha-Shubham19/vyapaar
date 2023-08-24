@@ -1,10 +1,8 @@
 import React, { useContext } from 'react'
 import { MyContext } from '../context/MyContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { colors_of_properties } from '../data/cards_details';
 import { PlayersContext } from '../context/PlayersContext';
-import img from "../media/cards/prisoner.svg"
+import {PackMan} from "../components/PackMan"
 
 function Gamecard_item(props) {
 
@@ -28,32 +26,31 @@ function Gamecard_item(props) {
   const { ...style_for_placement } = props.style_for_placement;
 
   return (
-    <div className="flex w-full h-full rounded-sm font-mono overflow-hidden" style={style_for_placement}
+    <div className=" z-50 blur-none md:text-sm	 flex w-full h-full rounded-sm font-mono" style={style_for_placement}
       onMouseOver={() => handleMouseOver()} onMouseOut={() => handleMouseOut()}>
       {
         props.property_details["Card_Color"] && (cardBgColor != '#FFFFFF') &&
         <div className="" style={{ backgroundColor: cardBgColor, flex: 1 }}></div>
       }
-      <div className="flex relative bg-[#FFFFFF] flex-col justify-evenly" style={{ flex: 2 }}>
-        <div className={`absolute  text-black text-[0.5rem] md:text-[1rem] top-0 left-0 w-full h-full flex justify-center gap-[0.1rem] flex-wrap items-center ${(Math.floor((props.property_details.eleNo-1) / 10) & 1 || props.property_details.eleNo%10 === 1) ? 'flex-row' : 'flex-col'}`} >
-          {
-            allPlayersData.filter(val => props.property_details.eleNo === val.currentPosition).map(val => {
-              return <FontAwesomeIcon key={`player-${val.playerNumber}`} icon={faUserTie} className={`${props.property_details.eleNo%10 === 1 ? 'relative top-3/4 self-start' : ''} 	text-slate-100`} style={{ color: colors_of_properties_array[val.playerNumber - 1] }} />
-            })
-          }
-        </div>
+      <div className="flex bg-[#FFFFFF] flex-col justify-evenly" style={{ flex: 2 }}>
 
         <div className='font-bold'>{props.property_details["City"]}</div>
 
-        {/* <div className='h-[20px]'>
-          <img src={img} alt="" className='h-full w-full'/>
-        </div> */}
 
         {
           props.property_details["Purchase_Price"] &&
           <div className='font-bold'>{props.property_details["Purchase_Price"]}</div>
         }
       </div>
+
+      
+      <div className={`absolute mx-auto my-auto w-full h-full flex justify-center items-center flex-wrap ${(Math.floor((props.property_details.eleNo-1) / 10) & 1 || props.property_details.eleNo%10 === 1) ? 'flex-row' : 'flex-row'}`} >
+          {
+            allPlayersData.filter(val => props.property_details.eleNo === val.currentPosition).map((val,index) => {
+              return <PackMan key={`player-${val.playerNumber}`} index={index} playerNumber={val.playerNumber} currentPosition={val.currentPosition} className={`${props.property_details.eleNo%10 === 1 ? 'relative top-3/4 self-start' : ''} 	text-slate-100`} />
+            })
+          }
+        </div>
     </div>
   )
 }

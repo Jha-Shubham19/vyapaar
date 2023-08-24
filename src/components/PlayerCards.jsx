@@ -16,13 +16,10 @@ const PlayerCards = (props) => {
   let playerSelected = props.playerSelected;
   
   let playerCount = props.playerCount;
-  console.log("player selected value in player cards "+playerSelected);
-  console.log("playr count ki value "+playerCount);
   
   const avatars = [avatar1, avatar2, avatar3, avatar4];
   let playerCard = [];
   for (let i = 0; i < playerCount; i++) {
-    console.log("run hua")
     playerCard.push(i);
   }
   
