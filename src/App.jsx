@@ -11,17 +11,17 @@ function App() {
   const {playerCount, setPlayerCount} = useContext(MyContext);
   
   return (
-    <div className="lg:h-screen flex max-lg:flex-col  md:justify-evenly md:p-1 gap-8 bg-cover bg-center bg-no-repeat cursor-retro" style={{backgroundImage:"url('../src/media/main-bg.svg')",backgroundSize: 'cover',
+    <div className="h-screen flex max-lg:flex-col md:justify-evenly md:p-1 gap-4 bg-cover bg-center bg-no-repeat cursor-retro" style={{backgroundImage:"url('../src/media/main-bg.svg')",backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',}}>
+    backgroundRepeat: 'repeat',}}>
       <Gamecard/>
 
-      <div className="flex flex-nowrap	justify-around items-center	 flex-col gap-2 sm:min-h-[calc(calc(100vh-100vw)/2)] md:min-w-[calc(calc(100vw-100vh)/2)]">
+      <div className="flex flex-nowrap justify-around items-center gap-2 flex-row sm:min-h-[calc(calc(100vh-100vw)/2)] md:min-w-[calc(calc(100vw-100vh)/2)] lg:flex-col">
         {
           playerSelected && <Dice />
         }
 
-        <div className="flex justify-evenly gap-2	">
+        <div className="flex justify-evenly gap-2 sm:flex-1">
           {playerSelected ? <PlayerCards playerCount={playerCount} playerSelected={playerSelected} setPlayerSelected={setPlayerSelected} /> :
             <PlayerMenu setPlayerCount={setPlayerCount} setPlayerSelected={setPlayerSelected} playerSelected={playerSelected} />}
         </div>
