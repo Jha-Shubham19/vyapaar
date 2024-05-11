@@ -2,15 +2,15 @@ import React, { useContext, useState } from "react";
 import { BiUserCircle } from "react-icons/bi";
 import moneyImage from "../media/money.png";
 import { PlayersContext } from '../context/PlayersContext';
+import {colors_of_players} from '../data/cards_details';
 
 const PlayerCard = (props) => {
   let avatar = props.avatar;
   let playerNo = props.playerNo;
-  const [money, setMoney] = useState(1000);
 
-  const { whosTurn } = useContext(PlayersContext)
+  const { whosTurn, allPlayersData } = useContext(PlayersContext);
+  const playerColor = colors_of_players[playerNo-1];
 
-  const playerColor = playerNo == 1 ? "red" : playerNo == 2 ? "#FF6EB4" : playerNo == 3 ? "#0000FF" : "#00CD00"
   // const borderStyle =` border-4 border-${playerColor}-200 border-b-${playerColor}-500`
   const borderStyle = {
     border: `6px solid ${playerColor}`,
@@ -31,7 +31,7 @@ const PlayerCard = (props) => {
         <p className="text-white text-sm lg:text-2xl font-bold tracking-wider font-mono">
           Player {playerNo}
         </p>
-        <p className="text-[#FFD89E] text-sm lg:text-xl font-bold">$ {money}</p>
+        <p className="text-[#FFD89E] text-sm lg:text-xl font-bold">$ {allPlayersData[playerNo-1]?.cashAvailable ?? 1000}</p>
       </div>
     </div>
   );

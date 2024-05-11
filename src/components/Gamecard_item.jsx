@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect,useImperativeHandle, useRef } from 'react'
 import { MyContext } from '../context/MyContext';
 import { colors_of_properties } from '../data/cards_details';
 import { PlayersContext } from '../context/PlayersContext';
@@ -6,13 +6,27 @@ import { PackMan } from "../components/PackMan"
 
 function Gamecard_item(props) {
 
+  const refToDiv = useRef();
   const { currentCity, setCurrentCity, playerCount } = useContext(MyContext);
-  const { allPlayersData } = useContext(PlayersContext);
+  const { allPlayersData, hisTurnJustEnded,allGameItemsRefs } = useContext(PlayersContext);
   const colors_of_properties_array = Object.values(colors_of_properties);
 
+  useEffect(() => {
+    hisTurnJustEnded!==null && allPlayersData[hisTurnJustEnded].currentPosition == props.property_details.eleNo && handleMouseOver();
+  }, [hisTurnJustEnded])
+  
+  useEffect(() => {
+    allGameItemsRefs.current[props.property_details.eleNo]={
+      City: props.property_details.City.replace(/\s+/g, ''),
+      boughtBy: null,
+      levelOfConstruction:-1,
+      refToDiv: refToDiv,
+    }
+  }, [])
+  
   const handleMouseOver = () => {
-    const cityName = props.property_details["City"].replace(/\s+/g, '')
-    setCurrentCity(cityName)
+    // const cityName = props.property_details["City"].replace(/\s+/g, '')
+    // setCurrentCity(cityName)
   };
 
   const handleMouseOut = () => {
@@ -27,7 +41,7 @@ function Gamecard_item(props) {
 
   return (
     <div className=" z-50 blur-none lg:text-xsm flex w-full h-full rounded-sm font-mono" style={style_for_placement} //text-sm to text-xsm
-      onMouseOver={() => handleMouseOver()} onMouseOut={() => handleMouseOut()}>
+      onMouseOver={() => handleMouseOver()} onMouseOut={() => handleMouseOut()} ref={refToDiv}>
       {
         props.property_details.eleNo % 10 !== 1 &&
         <div className="" style={{ backgroundColor: cardBgColor, flex: 1 }}></div>

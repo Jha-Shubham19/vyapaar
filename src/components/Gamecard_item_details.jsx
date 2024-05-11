@@ -1,23 +1,18 @@
 import React from 'react'
 import Card from "./Card"
 import { card_details } from "../data/cards_details"
-
-
+import { MyContext } from '../context/MyContext'
+import { useContext } from 'react'
 const Gamecard_item_details = () => {
 
 	const allDataArray = Object.values(card_details.cities);
-
+	const { currentCity } = useContext(MyContext);
+	
 	return (
 		<>
 			{
-				allDataArray.map(
-					(cardData, index) => {
-						//show properties card only
-						return cardData.Purchase_Price && cardData.City.indexOf("Tax")==-1 ? 
-							<Card cardData={cardData} key={index} aboutToBePurchased={true}></Card> : null;
-
-					}
-				)
+				 
+				currentCity && <Card cardData={card_details.cities[currentCity]} currentCity={currentCity}></Card>
 			}
 		</>
 	)

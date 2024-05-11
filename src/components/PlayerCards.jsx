@@ -11,7 +11,7 @@ import {PlayersContext} from '../context/PlayersContext';
 const PlayerCards = (props) => {
   const {setAllPlayersData} = useContext(PlayersContext);
   useEffect(() => {
-    setAllPlayersData(Array.from({length:playerCount},(v,ind)=> {return { playerNumber:ind+1, currentPosition: 1, cashAvailable: 1000 }}));
+    setAllPlayersData(Array.from({length:playerCount},(v,ind)=> {return { playerNumber:ind+1, currentPosition: 1, cashAvailable: 1000, propertiesOwned:[] }}));
   }, []);
   let playerSelected = props.playerSelected;
   

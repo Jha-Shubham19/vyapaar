@@ -5,14 +5,16 @@ import diceThree from '../media/dices/die-3.svg'
 import diceFour from '../media/dices/die-4.svg'
 import diceFive from '../media/dices/die-5.svg'
 import diceSix from '../media/dices/die-6.svg'
-import { useMovementFunctionality } from './Movement_Of_Piece_Functionality';
+import { useMovementFunctionality } from '../functionalities/Movement_Of_Piece_Functionality';
+import useTransaction from '../functionalities/Transaction'
 
 function Dice() {
-	const [numberOnDices, setNumberOnDices] = useState([6, 6]);
+	const [numberOnDices, setNumberOnDices] = useState([-1, -1]);
+	const [numberOnDiceForAnimation, setNumberOnDiceForAnimation] = useState([6, 6]);
 	const [beat, setBeat] = useState(true);
 	const [countOfConsecutive, setCountOfConsecutive] = useState(0);
-	const [moveTheCurrentPiece] = useMovementFunctionality({ setBeat, setNumberOnDices, numberOnDices, countOfConsecutive, setCountOfConsecutive });
-
+	useMovementFunctionality({ setBeat, setNumberOnDices, numberOnDices, countOfConsecutive, setCountOfConsecutive });
+	useTransaction({setBeat});
 	const diceIcons = [
 		null, // for 1-based indexing
 		diceOne,
@@ -23,15 +25,39 @@ function Dice() {
 		diceSix
 	];
 
+	const getRandomDiceNumber = () => Math.floor(Math.random() * 6) + 1;
 	const handleClick = () => {
-		moveTheCurrentPiece();
+		setBeat(prev => !prev);
+		const numbersOnDiceForAnimation = [[3,4],[4,3],[3,4],[1,2],[1,5],[2,4],[1,3],[6,4],[1,2],[1,5]];
+		let index = 0;
+		const interval = setInterval(() => {
+      setNumberOnDiceForAnimation(numbersOnDiceForAnimation[index]);
+			index++;
+			if(index == 7) {
+				clearInterval(interval);
+				const randomDice = [getRandomDiceNumber(),getRandomDiceNumber()];
+				setNumberOnDiceForAnimation(randomDice);
+				console.log(index);
+				
+				setNumberOnDices(randomDice);
+			}
+    }, 60);
+
+    // setTimeout(() => {
+    //   clearInterval(interval);
+		// 	const randomDice = [getRandomDiceNumber(),getRandomDiceNumber()];
+		// 	setNumberOnDiceForAnimation(randomDice);
+		// 	console.log(numberOnDiceForAnimation,randomDice);
+		// 	// setNumberOnDices(numberOnDiceForAnimation);
+    // }, 300);
+		// moveTheCurrentPiece();
 	}
 
 	return (
 		<div className="flex justify-center my-2 cursor-pointer">
 			<div className='flex  gap-2' onClick={beat ? handleClick : () => { }}>
-				<div key={0}><img src={diceIcons[numberOnDices[0]]} alt="" /></div>
-				<div key={1}><img src={diceIcons[numberOnDices[1]]} alt="" /></div>
+				<div key={0}><img src={diceIcons[numberOnDiceForAnimation[0]]} alt="" /></div>
+				<div key={1}><img src={diceIcons[numberOnDiceForAnimation[1]]} alt="" /></div>
 			</div>
 		</div>
 	)

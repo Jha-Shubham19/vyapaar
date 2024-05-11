@@ -2,17 +2,24 @@ import PropTypes from 'prop-types';
 import { MyContext } from "../context/MyContext"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faBuilding } from '@fortawesome/free-solid-svg-icons';
-import { useContext,useState } from 'react';
+import { useContext, useState } from 'react';
+import Chance_n_Chest_Card from './Chance_n_Chest_Card';
+import { PlayersContext } from '../context/PlayersContext';
 
 // import Lottie from "lottie-react";
 // import coinShower from "../assets/newcoinshower.json"
 
-function Card({ cardData, aboutToBePurchased }) {
+function Card({ cardData , currentCity}) {
+	console.log(cardData, currentCity);
 
-	const { currentCity } = useContext(MyContext)
-
+	const aboutToBePurchased = true;
 	// const [coinShowerAnimation, setCoinShowerAnimation] = useState(false);
-
+	return (
+		currentCity === 'Chance' || currentCity === 'CommunityChest' ? <Chance_n_Chest_Card /> : <NormalPropertyCard currentCity={currentCity} cardData={cardData} aboutToBePurchased={aboutToBePurchased} />
+	)
+}
+function NormalPropertyCard({ currentCity, cardData, aboutToBePurchased }) {
+	const {whetherUserHasPurchasedProperty,setWhetherUserHasPurchasedProperty} = useContext(PlayersContext);
 	const {
 		Card_Color,
 		City,
@@ -40,17 +47,16 @@ function Card({ cardData, aboutToBePurchased }) {
 
 
 	return (
-		<div className={` flex flex-col justify-between border font-mono border-slate-500 text-center overflow-hidden	
-            ${(currentCity == cityName ? "block" : "hidden")}  bg-slate-200 rounded-md z-50  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]`} style={{ gridArea: "4 / 6 / span 6/ span 4" }}>
+		<div className={` flex flex-col justify-between border font-mono border-slate-500 text-center overflow-hidden	bg-slate-200 rounded-md z-50 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] ${(currentCity == cityName ? "block" : "hidden")}`} style={{ gridArea: "4 / 6 / span 6/ span 4" }}>
 
 			<div style={{ backgroundColor: Card_Color }} className='border border-y-slate-500 text-[0.7rem] font-bold md:text-2xl'>
-				<div className='py-[0.5rem]' >
+				<div className='py-[0.25rem]' >
 					<h1 className='font-semibold'>{City}</h1>
 				</div>
 			</div>
 			<div className='flex flex-1 justify-center pt-1'>
 
-				<div className='flex flex-col justify-evenly text-[0.5rem] font-semibold md:text-[1rem] w-4/5'>
+				<div className='flex flex-col justify-evenly text-[0.42rem] font-semibold md:text-[1rem] w-4/5'>
 					<div className='text-gray-600 leading-none'>
 						{
 							Purchase_Price && <p>Purchase Price: {Purchase_Price}</p>
@@ -143,10 +149,10 @@ function Card({ cardData, aboutToBePurchased }) {
 					{/* {
 						coinShowerAnimation && <Lottie animationData={coinShower} autoplay={true} loop={false} style={{ width: '100px', height: '100px', backgroundColor: '' }} ></Lottie>
 					} */}
-					<button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-1 px-3 rounded" onClick={() => coinShowerHandler()}>
+					<button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-1 px-3 rounded" onClick={() => {console.log("bot");setWhetherUserHasPurchasedProperty(1);console.log(whetherUserHasPurchasedProperty);}}>
 						Buy
 					</button>
-					<button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 rounded" onClick={() => coinShowerHandler()}>
+					<button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 rounded" onClick={() => setWhetherUserHasPurchasedProperty(-1)}>
 						Sell
 					</button>
 				</div>
