@@ -5,10 +5,9 @@ import {colors_of_players , card_details} from '../data/cards_details';
 
 function useTransaction(props) {
   const { allPlayersData, setAllPlayersData, whosTurn, setWhosTurn, allGameItemsRefs, whetherUserHasPurchasedProperty, setWhetherUserHasPurchasedProperty } = useContext(PlayersContext);
-  const { currentCity, setCurrentCity } = useContext(MyContext);
+  const { currentCity, setCurrentCity,myPlayerNumber } = useContext(MyContext);
 
   useEffect(() => {
-    console.log("gg", whetherUserHasPurchasedProperty);
     const currPlayerCurrentLocation = allPlayersData[whosTurn]?.currentPosition;
     console.log("bot");
     if (whetherUserHasPurchasedProperty !== 0 && whetherUserHasPurchasedProperty!==null) {
@@ -18,17 +17,23 @@ function useTransaction(props) {
       else if (whetherUserHasPurchasedProperty === -1) {
         console.log("decision made ", whetherUserHasPurchasedProperty);
       }
-      setWhosTurn(prev => (prev + 1) % allPlayersData.length);
+      const nextTurn = (whosTurn+1) % allPlayersData.length;
+      setWhosTurn(nextTurn);  //this takes time
       setCurrentCity(null);
       setWhetherUserHasPurchasedProperty(0);
-      props.setBeat(prev => !prev);
+      console.log("gg",whosTurn);
+      if(nextTurn+1 === myPlayerNumber) props.setBeat(true);
+      else props.setBeat(false);
     }
     else if (currentCity !== null) {
       setWhetherUserHasPurchasedProperty(0);
       console.log("aaya");
       setCurrentCity(null);
-      setWhosTurn(prev => (prev + 1) % allPlayersData.length);
-      props.setBeat(prev => !prev);
+      const nextTurn = (whosTurn+1) % allPlayersData.length;
+      setWhosTurn(nextTurn);  //this takes time
+      console.log("gg",whosTurn);
+      if(nextTurn+1 === myPlayerNumber) props.setBeat(true);
+      else props.setBeat(false);
     }
   }, [whetherUserHasPurchasedProperty]);
 

@@ -52,7 +52,7 @@ const card_details = {
       "Hotel_Price": "50",
       "Mortgage_Price": "30"
     },
-    "Income_Tax":{
+    "IncomeTax":{
       "Card_Color":"#FFFFFF",
       "City":"Income Tax",
       "Purchase_Price": "200",
@@ -410,7 +410,7 @@ const card_details = {
       "Hotel_Price": "200",
       "Mortgage_Price": "175"
     },
-    "Luxary_Tax":{
+    "LuxaryTax":{
       "Card_Color":"#FFFFFF",
       "City":"Luxary Tax",
       "Purchase_Price": "75"

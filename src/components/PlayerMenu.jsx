@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const PlayerMenu = (props) => {
 
-  let setPlayerCount = props.setPlayerCount;
+  const {setPlayerCount} = useContext(MyContext);
   let setPlayerSelected = props.setPlayerSelected;
   let playerSelected = props.playerSelected;
 

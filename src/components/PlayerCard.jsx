@@ -7,7 +7,8 @@ import {colors_of_players} from '../data/cards_details';
 const PlayerCard = (props) => {
   let avatar = props.avatar;
   let playerNo = props.playerNo;
-
+  let username = props.username;
+  
   const { whosTurn, allPlayersData } = useContext(PlayersContext);
   const playerColor = colors_of_players[playerNo-1];
 
@@ -29,7 +30,7 @@ const PlayerCard = (props) => {
 
       <div>
         <p className="text-white text-sm lg:text-2xl font-bold tracking-wider font-mono">
-          Player {playerNo}
+          {username}
         </p>
         <p className="text-[#FFD89E] text-sm lg:text-xl font-bold">$ {allPlayersData[playerNo-1]?.cashAvailable ?? 1000}</p>
       </div>

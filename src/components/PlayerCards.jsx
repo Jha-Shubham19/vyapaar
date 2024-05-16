@@ -9,13 +9,13 @@ import { MyContext } from '../context/MyContext';
 import {PlayersContext} from '../context/PlayersContext';
 
 const PlayerCards = (props) => {
-  const {setAllPlayersData} = useContext(PlayersContext);
+  const {playerCount} = useContext(MyContext);
+  const {allPlayersData} = useContext(PlayersContext);
   useEffect(() => {
-    setAllPlayersData(Array.from({length:playerCount},(v,ind)=> {return { playerNumber:ind+1, currentPosition: 1, cashAvailable: 1000, propertiesOwned:[] }}));
+    // setAllPlayersData(Array.from({length:playerCount},(v,ind)=> {return { playerNumber:ind+1, currentPosition: 1, cashAvailable: 1000, propertiesOwned:[] }}));
   }, []);
   let playerSelected = props.playerSelected;
   
-  let playerCount = props.playerCount;
   
   const avatars = [avatar1, avatar2, avatar3, avatar4];
   let playerCard = [];
@@ -29,7 +29,7 @@ const PlayerCards = (props) => {
     <div className="flex gap-2 flex-col	">
         
         {playerCard.map((i) => {
-          return <PlayerCard key={i}  playerNo={i + 1} avatar={avatars[i]} />;
+          return <PlayerCard key={i}  playerNo={i + 1} avatar={avatars[i]} username={allPlayersData[i].username}/>;
         })}
     </div>
     

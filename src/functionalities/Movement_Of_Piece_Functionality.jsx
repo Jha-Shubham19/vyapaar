@@ -6,15 +6,15 @@ import {colors_of_players , card_details} from '../data/cards_details';
 
 function useMovementFunctionality(props) {
   const { allPlayersData, setAllPlayersData, whosTurn, setWhosTurn, hisTurnJustEnded, setHisTurnJustEnded, allGameItemsRefs, whetherUserHasPurchasedProperty, setWhetherUserHasPurchasedProperty } = useContext(PlayersContext);
-  const { currentCity, setCurrentCity } = useContext(MyContext);
+  const { currentCity, setCurrentCity,numberOnDices } = useContext(MyContext);
   const [isIntervalRunning, setIsIntervalRunning] = useState(false);
   const [totalSumOnDice, setTotalSumOnDice] = useState(-1);
 
   useEffect(() => {
     
-    setTotalSumOnDice(props.numberOnDices[0] + props.numberOnDices[1]);
+    setTotalSumOnDice(numberOnDices[0] + numberOnDices[1]);
     
-  }, [props.numberOnDices]);
+  }, [numberOnDices]);
   useEffect(() => {
     if (totalSumOnDice > 0) {
 

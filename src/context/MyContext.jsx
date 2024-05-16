@@ -6,12 +6,18 @@ export const MyContext = createContext();
 export default function ContextProvider({ children }) {
     
     const [currentCity, setCurrentCity] = useState(null);
-    const [playerCount, setPlayerCount] = useState(2);
+    const [playerCount, setPlayerCount] = useState(0);
+    const [numberOnDices, setNumberOnDices] = useState([-1, -1]);
+    const [myPlayerNumber, setMyPlayerNumber] = useState(null)
     const value = {
         currentCity,
         setCurrentCity,
         playerCount,
         setPlayerCount,
+        numberOnDices,
+        setNumberOnDices,
+        myPlayerNumber,
+        setMyPlayerNumber
     }
 
     return (<MyContext.Provider value={value}>

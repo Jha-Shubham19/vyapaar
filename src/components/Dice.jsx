@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import diceOne from '../media/dices/die-1.svg'
 import diceTwo from '../media/dices/die-2.svg'
 import diceThree from '../media/dices/die-3.svg'
@@ -7,13 +7,14 @@ import diceFive from '../media/dices/die-5.svg'
 import diceSix from '../media/dices/die-6.svg'
 import { useMovementFunctionality } from '../functionalities/Movement_Of_Piece_Functionality';
 import useTransaction from '../functionalities/Transaction'
+import { MyContext } from '../context/MyContext'
 
-function Dice() {
-	const [numberOnDices, setNumberOnDices] = useState([-1, -1]);
+function Dice({catchRandomDice}) {
+	const {numberOnDices, myPlayerNumber} =  useContext(MyContext);
 	const [numberOnDiceForAnimation, setNumberOnDiceForAnimation] = useState([6, 6]);
-	const [beat, setBeat] = useState(true);
+	const [beat, setBeat] = useState(false);
 	const [countOfConsecutive, setCountOfConsecutive] = useState(0);
-	useMovementFunctionality({ setBeat, setNumberOnDices, numberOnDices, countOfConsecutive, setCountOfConsecutive });
+	useMovementFunctionality({ setBeat, countOfConsecutive, setCountOfConsecutive });
 	useTransaction({setBeat});
 	const diceIcons = [
 		null, // for 1-based indexing
@@ -24,6 +25,14 @@ function Dice() {
 		diceFive,
 		diceSix
 	];
+	useEffect(() => {
+		if(1 === myPlayerNumber) setBeat(true);
+	}, [myPlayerNumber])
+	
+	useEffect(()=>{
+		console.log(myPlayerNumber);
+		if(numberOnDices[0]!=-1) setNumberOnDiceForAnimation(numberOnDices);
+	},[numberOnDices]);
 
 	const getRandomDiceNumber = () => Math.floor(Math.random() * 6) + 1;
 	const handleClick = () => {
@@ -39,7 +48,8 @@ function Dice() {
 				setNumberOnDiceForAnimation(randomDice);
 				console.log(index);
 				
-				setNumberOnDices(randomDice);
+				// setNumberOnDices(randomDice);
+				catchRandomDice(randomDice);
 			}
     }, 60);
 

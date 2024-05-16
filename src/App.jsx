@@ -1,33 +1,57 @@
-import React, { useContext, useState } from "react";
-import Gamecard from "./components/Gamecard";
-import { chances_cards } from "./data/cards_details";
-import Dice from "./components/Dice";
-import PlayerMenu from "./components/PlayerMenu";
-import PlayerCards from "./components/PlayerCards";
-import { MyContext } from "./context/MyContext";
+import React, { useContext, useEffect, useState } from "react";
+import FailedApp from "./components/FailedApp";
+import MyContextFunction,{MyContext} from "./context/MyContext";
+import PlayersContextFunction,{PlayersContext} from "./context/PlayersContext";
+import {socket} from './socket';
 
 function App() {
-  const [playerSelected, setPlayerSelected] = useState(false);
-  const {playerCount, setPlayerCount} = useContext(MyContext);
+  const {setAllPlayersData} = useContext(PlayersContext);
+  const {setPlayerCount, setNumberOnDices, setMyPlayerNumber} = useContext(MyContext);
+
+  const urlPraser = new URLSearchParams(window.location.search);
+  const room = urlPraser.get('code');
+  const username = urlPraser.get('username');
+
+
+  useEffect(() => {
+    console.log("real app");
+    let mySocketId;
+    const handleConnection = ({socketId}) => {
+      console.log(socketId);
+      mySocketId = socketId;
+      socket.emit("join", {room, username});
+    }
+    const handleNewUserJoined = ({allPlayersData}) => {
+      console.log(allPlayersData);
+      const myPlayerNumber = allPlayersData.filter(({socketId}) => mySocketId === socketId)[0].playerNumber;
+      console.log(myPlayerNumber);
+      setMyPlayerNumber(myPlayerNumber);
+      setAllPlayersData(allPlayersData);
+      setPlayerCount(allPlayersData.at(-1).playerNumber);
+    }
+    const handleMakeDiceMovemet = ({randomDice}) => {
+      setNumberOnDices(randomDice);
+    }
+    
+    socket.on("makeDiceMovemet", handleMakeDiceMovemet, arguments);
+    socket.on("newUserJoined", handleNewUserJoined, arguments);
+    socket.on("connection", handleConnection, arguments); // Use "connect" event instead of "connection"
   
+    // Cleanup function to remove the event listener
+    return () => {
+      socket.off("connection", handleConnection);
+      socket.off("newUserJoined", handleNewUserJoined);
+      socket.on("makeDiceMovemet", handleMakeDiceMovemet);
+    };
+  }, []);
+  const catchRandomDice = (randomDice) => {
+    socket.emit("randomDiceIs", {room, randomDice});
+  }
   return (
-    <div className="h-screen flex max-lg:flex-col md:justify-evenly md:p-1 gap-4 bg-cover bg-center bg-no-repeat cursor-retro" style={{backgroundImage:"url('../src/media/main-bg.svg')",backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'repeat',}}>
-      <Gamecard/>
-
-      <div className="flex flex-nowrap justify-around items-center gap-2 flex-row sm:min-h-[calc(calc(100vh-100vw)/2)] md:min-w-[calc(calc(100vw-100vh)/2)] lg:flex-col">
-        {
-          playerSelected && <Dice />
-        }
-
-        <div className="flex justify-evenly gap-2 sm:flex-1">
-          {playerSelected ? <PlayerCards playerCount={playerCount} playerSelected={playerSelected} setPlayerSelected={setPlayerSelected} /> :
-            <PlayerMenu setPlayerCount={setPlayerCount} setPlayerSelected={setPlayerSelected} playerSelected={playerSelected} />}
-        </div>
-      </div>
-    </div>
-  );
+  
+    <FailedApp catchRandomDice={catchRandomDice}></FailedApp>
+    
+  )
 }
 
 export default App;
