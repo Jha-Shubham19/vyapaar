@@ -5,7 +5,7 @@ import PlayerMenu from "./PlayerMenu";
 import PlayerCards from "./PlayerCards";
 import { MyContext } from "../context/MyContext";
 
-function FailedApp({catchRandomDice}) {
+function FailedApp() {
   const [playerSelected, setPlayerSelected] = useState(true);
   
   return (
@@ -16,7 +16,7 @@ function FailedApp({catchRandomDice}) {
 
       <div className="flex flex-nowrap justify-around items-center gap-2 flex-row sm:min-h-[calc(calc(100vh-100vw)/2)] md:min-w-[calc(calc(100vw-100vh)/2)] lg:flex-col">
         {
-          playerSelected && <Dice catchRandomDice={catchRandomDice}/>
+          playerSelected && <Dice/>
         }
 
         <div className="flex justify-evenly gap-2 sm:flex-1">

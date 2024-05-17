@@ -8,9 +8,11 @@ import diceSix from '../media/dices/die-6.svg'
 import { useMovementFunctionality } from '../functionalities/Movement_Of_Piece_Functionality';
 import useTransaction from '../functionalities/Transaction'
 import { MyContext } from '../context/MyContext'
+import { SocketContext } from '../context/SocketContext'
 
-function Dice({catchRandomDice}) {
-	const {numberOnDices, myPlayerNumber} =  useContext(MyContext);
+function Dice() {
+	const {numberOnDices, myPlayerNumber, isMyTurn} =  useContext(MyContext);
+	const {catchRandomDice} = useContext(SocketContext);
 	const [numberOnDiceForAnimation, setNumberOnDiceForAnimation] = useState([6, 6]);
 	const [beat, setBeat] = useState(false);
 	const [countOfConsecutive, setCountOfConsecutive] = useState(0);
@@ -49,7 +51,7 @@ function Dice({catchRandomDice}) {
 				console.log(index);
 				
 				// setNumberOnDices(randomDice);
-				catchRandomDice(randomDice);
+				catchRandomDice([4,3]);
 			}
     }, 60);
 
@@ -65,7 +67,7 @@ function Dice({catchRandomDice}) {
 
 	return (
 		<div className="flex justify-center my-2 cursor-pointer">
-			<div className='flex  gap-2' onClick={beat ? handleClick : () => { }}>
+			<div className='flex  gap-2' onClick={isMyTurn ? handleClick : () => { }}>
 				<div key={0}><img src={diceIcons[numberOnDiceForAnimation[0]]} alt="" /></div>
 				<div key={1}><img src={diceIcons[numberOnDiceForAnimation[1]]} alt="" /></div>
 			</div>

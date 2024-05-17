@@ -20,6 +20,8 @@ function Gamecard_item(props) {
       City: props.property_details.City.replace(/\s+/g, ''),
       boughtBy: null,
       levelOfConstruction:-1,
+      tripleRent: false,
+      Card_Color: props.property_details.Card_Color,
       refToDiv: refToDiv,
     }
   }, [])
