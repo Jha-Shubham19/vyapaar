@@ -18,10 +18,18 @@ export default function ContextProvider({ children }) {
   const switchToNextPlayerTurn = (args) => {
     socket.emit("switchToNextPlayerTurn", args)
   }
+  const payRent = ({whosTurn, boughtBy, priceToPay}) => {
+    socket.emit("payRent", {whosTurn, boughtBy, priceToPay});
+  }
+  const giveSalary = ({whosTurn}) => {
+    socket.emit("giveSalary", {whosTurn});
+  }
   const value = {
       catchRandomDice,
       buyOfProperty,
       switchToNextPlayerTurn,
+      payRent,
+      giveSalary,
   }
 
   return (<SocketContext.Provider value={value}>

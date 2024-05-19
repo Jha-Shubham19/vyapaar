@@ -4,6 +4,7 @@ import MyContextFunction,{MyContext} from "./context/MyContext";
 import PlayersContextFunction,{PlayersContext} from "./context/PlayersContext";
 import {socket} from './socket';
 import { card_details } from "./data/cards_details";
+import { waitForZero } from "./functionalities/Movement_Of_Piece_Functionality";
 
 function App() {
   const {setAllPlayersData , setWhosTurn, allGameItemsRefs, whosTurn, setWhetherUserHasPurchasedProperty} = useContext(PlayersContext);
@@ -73,7 +74,10 @@ function App() {
       // setWhosTurn(prev => (prev+1)%allPlayersData.length);
       // props.setBeat(prev => !prev);
     }
-    const handleSwitchToNextPlayerTurn = ({whosTurn, playerCount}) => {
+    const handleSwitchToNextPlayerTurn = async ({whosTurn, playerCount}) => {
+      console.log(new Date());
+      await waitForZero();
+      console.log(new Date());
       console.log("gg",whosTurn, playerCount);
       setWhetherUserHasPurchasedProperty(0);
       console.log("aaya");
@@ -82,12 +86,30 @@ function App() {
       setWhosTurn(nextTurn);  //this takes time
       console.log("gg",whosTurn, nextTurn, playerCount);
     }
-    
+    const handlePayRent = ({whosTurn, boughtBy, priceToPay}) => {
+      setAllPlayersData(prev => {
+        return prev.map((val, ind)=> {
+          if(ind === whosTurn) {
+            return {...val, cashAvailable: Number(val.cashAvailable)-Number(priceToPay)}
+          }
+          if(ind == boughtBy) {
+            return {...val, cashAvailable: Number(val.cashAvailable)+Number(priceToPay)}
+          }
+          return val;
+        })
+      })
+    }
+    const handleGiveSalary = ({whosTurn}) => {
+      console.log("lode");
+      setAllPlayersData(prev => prev.map((val,ind) => ind==whosTurn ? {...val,cashAvailable:val.cashAvailable+200} : val))
+    }
     socket.on("makeDiceMovemet", handleMakeDiceMovemet, arguments);
     socket.on("newUserJoined", handleNewUserJoined, arguments);
     socket.on("connection", handleConnection, arguments); // Use "connect" event instead of "connection"
     socket.on("buyOfProperty", handleBuyOfProperty, arguments);
     socket.on("switchToNextPlayerTurn", handleSwitchToNextPlayerTurn, arguments);
+    socket.on("payRent", handlePayRent, arguments);
+    socket.on("giveSalary", handleGiveSalary, arguments);
     // Cleanup function to remove the event listener
     return () => {
       socket.off("connection", handleConnection);
@@ -95,6 +117,8 @@ function App() {
       socket.off("makeDiceMovemet", handleMakeDiceMovemet);
       socket.off("buyOfProperty", handleBuyOfProperty);
       socket.off("switchToNextPlayerTurn", handleSwitchToNextPlayerTurn);
+      socket.off("payRent", handlePayRent);
+      socket.off("giveSalary", handleGiveSalary);
     };
   }, []);
   const catchRandomDice = (randomDice) => {

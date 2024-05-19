@@ -51,7 +51,7 @@ function Dice() {
 				console.log(index);
 				
 				// setNumberOnDices(randomDice);
-				catchRandomDice([4,3]);
+				catchRandomDice(randomDice);
 			}
     }, 60);
 
