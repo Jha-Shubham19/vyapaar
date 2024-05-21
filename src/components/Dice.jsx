@@ -11,13 +11,13 @@ import { MyContext } from '../context/MyContext'
 import { SocketContext } from '../context/SocketContext'
 
 function Dice() {
-	const {numberOnDices, myPlayerNumber, isMyTurn} =  useContext(MyContext);
+	const {numberOnDices, myPlayerNumber, isMyTurn, setIsMyTurn} =  useContext(MyContext);
 	const {catchRandomDice} = useContext(SocketContext);
 	const [numberOnDiceForAnimation, setNumberOnDiceForAnimation] = useState([6, 6]);
 	const [beat, setBeat] = useState(false);
 	const [countOfConsecutive, setCountOfConsecutive] = useState(0);
 	useMovementFunctionality({ setBeat, countOfConsecutive, setCountOfConsecutive });
-	useTransaction({setBeat});
+	useTransaction({beat, setBeat});
 	const diceIcons = [
 		null, // for 1-based indexing
 		diceOne,
@@ -30,7 +30,9 @@ function Dice() {
 	useEffect(() => {
 		if(1 === myPlayerNumber) setBeat(true);
 	}, [myPlayerNumber])
-	
+	useEffect(() => {
+		if(isMyTurn===true) setBeat(true);
+	}, [isMyTurn])
 	useEffect(()=>{
 		console.log(myPlayerNumber);
 		if(numberOnDices[0]!=-1) setNumberOnDiceForAnimation(numberOnDices);
@@ -38,7 +40,7 @@ function Dice() {
 
 	const getRandomDiceNumber = () => Math.floor(Math.random() * 6) + 1;
 	const handleClick = () => {
-		setBeat(prev => !prev);
+		setBeat(prev => false);
 		const numbersOnDiceForAnimation = [[3,4],[4,3],[3,4],[1,2],[1,5],[2,4],[1,3],[6,4],[1,2],[1,5]];
 		let index = 0;
 		const interval = setInterval(() => {
@@ -67,7 +69,7 @@ function Dice() {
 
 	return (
 		<div className="flex justify-center my-2 cursor-pointer">
-			<div className='flex  gap-2' onClick={isMyTurn ? handleClick : () => { }}>
+			<div className='flex  gap-2' onClick={isMyTurn && beat ? handleClick : () => { }}>
 				<div key={0}><img src={diceIcons[numberOnDiceForAnimation[0]]} alt="" /></div>
 				<div key={1}><img src={diceIcons[numberOnDiceForAnimation[1]]} alt="" /></div>
 			</div>

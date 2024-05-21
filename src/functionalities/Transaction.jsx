@@ -6,12 +6,13 @@ import { SocketContext } from '../context/SocketContext';
 
 function useTransaction(props) {
   const { allPlayersData, setAllPlayersData, whosTurn, setWhosTurn, allGameItemsRefs, whetherUserHasPurchasedProperty, setWhetherUserHasPurchasedProperty } = useContext(PlayersContext);
-  const { currentCity, setCurrentCity,myPlayerNumber, playerCount } = useContext(MyContext);
+  const { currentCity, setCurrentCity,myPlayerNumber, playerCount, isMyTurn } = useContext(MyContext);
   const {buyOfProperty, switchToNextPlayerTurn} = useContext(SocketContext);
 
   useEffect(() => {
     const currPlayerCurrentLocation = allPlayersData[whosTurn]?.currentPosition;
     console.log("bot");
+
     if (whetherUserHasPurchasedProperty !== 0 && whetherUserHasPurchasedProperty!==null) {
       if (whetherUserHasPurchasedProperty === 1) {
         buyOfProperty({currPlayerCurrentLocation, whosTurn, currentCity, changeColor:colors_of_players[whosTurn]});
@@ -29,15 +30,15 @@ function useTransaction(props) {
       // else props.setBeat(false);
     }
     else if (currentCity !== null) {
-      switchToNextPlayerTurn({whosTurn, playerCount});
-      // setWhetherUserHasPurchasedProperty(0);
-      // console.log("aaya");
-      // setCurrentCity(null);
-      // const nextTurn = (whosTurn+1) % allPlayersData.length;
-      // setWhosTurn(nextTurn);  //this takes time
-      // console.log("gg",whosTurn);
-      // if(nextTurn+1 === myPlayerNumber) props.setBeat(true);
-      // else props.setBeat(false);
+    //   switchToNextPlayerTurn({whosTurn, playerCount});
+    //   // setWhetherUserHasPurchasedProperty(0);
+    //   // console.log("aaya");
+    //   // setCurrentCity(null);
+    //   // const nextTurn = (whosTurn+1) % allPlayersData.length;
+    //   // setWhosTurn(nextTurn);  //this takes time
+    //   // console.log("gg",whosTurn);
+    //   // if(nextTurn+1 === myPlayerNumber) props.setBeat(true);
+    //   // else props.setBeat(false);
     }
   }, [whetherUserHasPurchasedProperty]);
 

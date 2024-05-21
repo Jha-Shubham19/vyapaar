@@ -9,17 +9,17 @@ import { PlayersContext } from '../context/PlayersContext';
 // import Lottie from "lottie-react";
 // import coinShower from "../assets/newcoinshower.json"
 
-function Card({ cardData , currentCity}) {
+function Card({ cardData , currentCity, aboutToBePurchased}) {
 	console.log(cardData, currentCity);
 
-	const aboutToBePurchased = true;
 	// const [coinShowerAnimation, setCoinShowerAnimation] = useState(false);
 	return (
-		currentCity === 'Chance' || currentCity === 'CommunityChest' ? <Chance_n_Chest_Card /> : <NormalPropertyCard currentCity={currentCity} cardData={cardData} aboutToBePurchased={aboutToBePurchased} />
+		<NormalPropertyCard currentCity={currentCity} cardData={cardData} aboutToBePurchased={aboutToBePurchased} />
 	)
 }
 function NormalPropertyCard({ currentCity, cardData, aboutToBePurchased }) {
 	const {whetherUserHasPurchasedProperty,setWhetherUserHasPurchasedProperty} = useContext(PlayersContext);
+	const {setShowCardDetails} = useContext(MyContext);
 	const {
 		Card_Color,
 		City,
@@ -153,7 +153,15 @@ function NormalPropertyCard({ currentCity, cardData, aboutToBePurchased }) {
 						Buy
 					</button>
 					<button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 rounded" onClick={() => setWhetherUserHasPurchasedProperty(-1)}>
-						Sell
+						Pass
+					</button>
+				</div>
+			}
+			{
+				!aboutToBePurchased &&
+				<div className="space-x-4 mb-[0.25rem] md:mb-[0.5rem] mx-auto">
+					<button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 rounded" onClick={() => setShowCardDetails(false)}>
+						Close
 					</button>
 				</div>
 			}

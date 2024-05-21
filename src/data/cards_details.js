@@ -1,5 +1,5 @@
  const colors_of_properties = {
-   "Red": "#E4E4E4",
+   "Red": "#ea4949",
    "Pink": "#E8B5BB",
   "Blue": "#5656f5",
   "Green": "#43B741",
@@ -136,7 +136,7 @@ const card_details = {
       "Card_Color": "#FFFFFF",
       "City": "Electric Company",
       "Purchase_Price": "150",
-      "Rent": "Dice roll * 4 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
+      "Rent": "Dice roll * 5 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
       "Mortgage_Price": "75"
     },
     "Uran": {
@@ -228,7 +228,7 @@ const card_details = {
       "City":"Free Parking",
     },
     "TalojaMIDC": {
-      "Card_Color": "#E4E4E4",
+      "Card_Color": "#ea4949",
       "City": "Taloja MIDC",
       "Purchase_Price": "220",
       "Rent": "18",
@@ -246,7 +246,7 @@ const card_details = {
       "City":"Chance",
     },
     "Kalamboli": {
-      "Card_Color": "#E4E4E4",
+      "Card_Color": "#ea4949",
       "City": "Kalamboli",
       "Purchase_Price": "220",
       "Rent": "18",
@@ -260,7 +260,7 @@ const card_details = {
       "Mortgage_Price": "110"
     },
     "NewPanvel": {
-      "Card_Color": "#E4E4E4",
+      "Card_Color": "#ea4949",
       "City": "New Panvel",
       "Purchase_Price": "240",
       "Rent": "20",
@@ -315,7 +315,7 @@ const card_details = {
       "Card_Color": "#FFFFFF",
       "City": "Water Works",
       "Purchase_Price": "150",
-      "Rent": "Dice roll * 4 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
+      "Rent": "Dice roll * 5 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
       "Mortgage_Price": "75"
     },
     "Sanpada": {
@@ -435,117 +435,117 @@ const card_details = {
 const chances_cards = [
   {
     "title": "Advance to Go (Collect 200)",
-    "description": "Collect 200 as you pass \"Go.\""
+    "description": "Collect 200 as you pass \"Go.\"",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:200, position:1};
+    }
   },
   {
     "title": "Advance to Kalamboli",
-    "description": "If you pass \"Go,\" collect 200."
+    "description": "If you pass \"Go,\" collect 200.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:200, position:24};
+    }
   },
   {
-    "title": "Advance to Karanjade",
-    "description": "If you pass \"Go,\" collect 200."
+    "title": "Drunk and Drive",
+    "description": "Pay fine of 100.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:-100, position:currPlayerCurrentLocation};
+    }
   },
   {
-    "title": "Advance to the nearest Railroad",
-    "description": "Pay owner twice the rental, if unowned, you may buy it from the Bank."
-  },
-  {
-    "title": "Advance to the nearest Utility",
-    "description": "If unowned, you may buy it from the Bank. If owned, throw dice and pay the owner ten times the amount thrown."
-  },
-  {
-    "title": "Bank pays you dividend of 50.",
-    "description": ""
-  },
-  {
-    "title": "Get Out of Jail Free",
-    "description": "This card may be kept until needed or sold."
-  },
-  {
-    "title": "Go Back 3 Spaces",
-    "description": "Do not pass \"Go,\" do not collect 200."
+    "title": "Bank pays you dividend",
+    "description": "Collect 50 from Bank",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:50, position:currPlayerCurrentLocation};
+    }
   },
   {
     "title": "Go to Jail",
-    "description": "Go directly to Jail. Do not pass \"Go,\" do not collect 200."
-  },
-  {
-    "title": "Make repairs on all your property",
-    "description": "For each house pay 25, for each hotel 100."
+    "description": "Go directly to Jail. Do not pass \"Go,\" do not collect 200.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:-50, position:11};
+    }
   },
   {
     "title": "Pay poor tax of 15.",
-    "description": ""
-  },
-  {
-    "title": "Advance to Seawoods",
-    "description": "If you pass \"Go,\" collect 200."
+    "description": "",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:-15, position:currPlayerCurrentLocation};
+    }
   },
   {
     "title": "Advance to Vashi",
-    "description": "Advance to Vashi."
-  }
+    "description": "Advance to Vashi.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:0, position:40};
+    }
+  },
+  {
+    "title": "Make repairs on all your property",
+    "description": "For each house and hotel pay 50.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:0, position:currPlayerCurrentLocation};
+    }
+  },
 ];
 const chest_cards =  [
   {
     "title": "Advance to Go (Collect 200)",
-    "description": "Collect 200 as you pass \"Go.\""
+    "description": "Collect 200 as you pass \"Go.\"",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:200, position:1};
+    }
   },
   {
     "title": "Bank error in your favor",
-    "description": "Collect 200."
+    "description": "Collect 200.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:200, position:currPlayerCurrentLocation};
+    }
   },
   {
     "title": "Doctor's fees",
-    "description": "Pay 50."
-  },
-  {
-    "title": "From sale of stock you get 50.",
-    "description": ""
-  },
-  {
-    "title": "Get Out of Jail Free",
-    "description": "This card may be kept until needed or sold."
+    "description": "Pay 50.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:-50, position:currPlayerCurrentLocation};
+    }
   },
   {
     "title": "Go to Jail",
-    "description": "Go directly to Jail. Do not pass \"Go,\" do not collect 200."
-  },
-  {
-    "title": "Grand Opera Night",
-    "description": "Collect 50 from every player for opening night seats."
-  },
-  {
-    "title": "Holiday Fund matures",
-    "description": "Collect 100."
+    "description": "Go directly to Jail. Do not pass \"Go,\" do not collect 200.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:-50, position:11};
+    }
   },
   {
     "title": "Income tax refund",
-    "description": "Collect 20."
-  },
-  {
-    "title": "It is your birthday",
-    "description": "Collect 10 from every player."
-  },
-  {
-    "title": "Life insUlewce matures",
-    "description": "Collect 100."
+    "description": "Collect 20.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:20, position:currPlayerCurrentLocation};
+    }
   },
   {
     "title": "Pay hospital fees of 100.",
-    "description": ""
+    "description": "",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:-100, position:currPlayerCurrentLocation};
+    }
   },
   {
     "title": "Pay school fees of 150.",
-    "description": ""
-  },
-  {
-    "title": "Receive 25 consultancy fee.",
-    "description": ""
+    "description": "",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:-150, position:currPlayerCurrentLocation};
+    }
   },
   {
     "title": "You are assessed for street repairs",
-    "description": "Pay 40 per house and 115 per hotel."
+    "description": "Pay 70 per house and per hotel.",
+    "thisWillHappen": ({currPlayerCurrentLocation})=>{
+      return {money:0, position:currPlayerCurrentLocation};
+    }
   }
 ];
 

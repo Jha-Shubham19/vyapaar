@@ -11,6 +11,7 @@ export default function ContextProvider({ children }) {
     const [myPlayerNumber, setMyPlayerNumber] = useState(null);
     const [room, setRoom] = useState(null);
     const [isMyTurn, setIsMyTurn] = useState(false);
+    const [showCardDetails, setShowCardDetails] = useState(false);
     const value = {
         currentCity,
         setCurrentCity,
@@ -24,6 +25,8 @@ export default function ContextProvider({ children }) {
         setRoom,
         isMyTurn,
         setIsMyTurn,
+        showCardDetails,
+        setShowCardDetails,
     }
 
     return (<MyContext.Provider value={value}>

@@ -21,8 +21,20 @@ export default function ContextProvider({ children }) {
   const payRent = ({whosTurn, boughtBy, priceToPay}) => {
     socket.emit("payRent", {whosTurn, boughtBy, priceToPay});
   }
-  const giveSalary = ({whosTurn}) => {
-    socket.emit("giveSalary", {whosTurn});
+  const giveSalary = ({whosTurn, money}) => {
+    socket.emit("giveSalary", {whosTurn, money});
+  }
+  const buildNewHouse = ({eleNo, whosTurn}) => {
+    socket.emit("buildNewHouse", {eleNo, whosTurn});
+  }
+  const sellOldHouse = ({eleNo, whosTurn}) => {
+    socket.emit("sellOldHouse", {eleNo, whosTurn});
+  }
+  const sendToJail = ({whosTurn}) => {
+    socket.emit("sendToJail", {whosTurn});
+  }
+  const chanceDikhado = ({whosTurn, randomIndex, currPlayerCurrentLocation}) => {
+    socket.emit("chanceDikhado", {whosTurn, randomIndex, currPlayerCurrentLocation});
   }
   const value = {
       catchRandomDice,
@@ -30,6 +42,10 @@ export default function ContextProvider({ children }) {
       switchToNextPlayerTurn,
       payRent,
       giveSalary,
+      buildNewHouse,
+      sellOldHouse,
+      sendToJail,
+      chanceDikhado,
   }
 
   return (<SocketContext.Provider value={value}>

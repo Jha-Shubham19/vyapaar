@@ -8,6 +8,7 @@ function PlayersContextProvider({children}) {
   const [hisTurnJustEnded, setHisTurnJustEnded] = useState(null);
   const allGameItemsRefs = useRef([]);
   const [whetherUserHasPurchasedProperty,setWhetherUserHasPurchasedProperty] = useState(0);
+  const [indexForChanceAndChest, setIndexForChanceAndChest] = useState([-1,-1]);
   const value = {
     allPlayersData,
     setAllPlayersData,
@@ -18,6 +19,8 @@ function PlayersContextProvider({children}) {
     allGameItemsRefs, 
     whetherUserHasPurchasedProperty,
     setWhetherUserHasPurchasedProperty,
+    indexForChanceAndChest,
+    setIndexForChanceAndChest,
   };
   return (
     <PlayersContext.Provider value={value}>

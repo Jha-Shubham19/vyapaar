@@ -5,7 +5,7 @@ import Chance_n_Chest_Card from './Chance_n_Chest_Card';
 import Gamecard_item_details from "./Gamecard_item_details"
 import { MyContext } from '../context/MyContext';
 
-function Gamecard() {
+function Gamecard({setters}) {
 
 
   const make_style_for_placement = (eleNo) => {
@@ -52,7 +52,7 @@ function Gamecard() {
       const eleNo = ind+1;
       const style = make_style_for_placement(eleNo);
 
-      return <Gamecard_item key={key} property_details={{ City, Card_Color, Purchase_Price, eleNo }} style_for_placement={style} />;
+      return <Gamecard_item key={key} property_details={{ City, Card_Color, Purchase_Price, eleNo }} style_for_placement={style} setters={setters}/>;
     })];
   }
   return (
