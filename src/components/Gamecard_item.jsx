@@ -67,7 +67,9 @@ function Gamecard_item(props) {
       onMouseOver={() => handleMouseOver()} onMouseOut={() => handleMouseOut()} ref={refToDiv} onClick={()=>handleClick()}>
       {
         props.property_details.eleNo % 10 !== 1 &&
-        <div className="flex justify-center align-middle flex-wrap text-black" style={{ backgroundColor: cardBgColor, flex: 1 }}></div>
+        <div className={`flex justify-center items-center flex-wrap text-black ${(Math.floor((props.property_details.eleNo - 1) / 10) & 1 || props.property_details.eleNo % 10 === 1) ? 'flex-col' : 'flex-row'}`} style={{ backgroundColor: cardBgColor, flex: 1 }}>
+          
+        </div>
       }
       <div className="flex relative bg-[#FFFFFF] flex-col justify-evenly" style={{ flex: 2 }}>
         <div className={`absolute top-0 left-0 w-full h-full flex justify-center items-center flex-wrap ${(Math.floor((props.property_details.eleNo - 1) / 10) & 1 || props.property_details.eleNo % 10 === 1) ? 'flex-row' : 'flex-col'}`} >

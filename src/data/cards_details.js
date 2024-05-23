@@ -32,7 +32,6 @@ const card_details = {
       "Rent_with_Hotel": "250",
       "House_Price": "50",
       "Hotel_Price": "50",
-      "Mortgage_Price": "30"
     },
     "Community_Chest_1":{
       "Card_Color":"#FFFFFF",
@@ -50,7 +49,6 @@ const card_details = {
       "Rent_with_Hotel": "450",
       "House_Price": "50",
       "Hotel_Price": "50",
-      "Mortgage_Price": "30"
     },
     "IncomeTax":{
       "Card_Color":"#FFFFFF",
@@ -66,7 +64,6 @@ const card_details = {
       "Rent_with_2_Railroads": "50",
       "Rent_with_3_Railroads": "100",
       "Rent_with_4_Railroads": "200",
-      "Mortgage_Price": "100"
     },
     "Turbhe": {
       "Card_Color": "#ADD8E6",
@@ -80,7 +77,6 @@ const card_details = {
       "Rent_with_Hotel": "550",
       "House_Price": "50",
       "Hotel_Price": "50",
-      "Mortgage_Price": "50"
     },
     "Chance_1":{
       "Card_Color":"#FFFFFF",
@@ -98,7 +94,6 @@ const card_details = {
       "Rent_with_Hotel": "550",
       "House_Price": "50",
       "Hotel_Price": "50",
-      "Mortgage_Price": "50"
     },
     "Ghansoli": {
       "Card_Color": "#ADD8E6",
@@ -112,7 +107,6 @@ const card_details = {
       "Rent_with_Hotel": "600",
       "House_Price": "50",
       "Hotel_Price": "50",
-      "Mortgage_Price": "60"
     },
     "Jail":{
       "Card_Color":"#FFFFFF",
@@ -130,14 +124,12 @@ const card_details = {
       "Rent_with_Hotel": "750",
       "House_Price": "100",
       "Hotel_Price": "100",
-      "Mortgage_Price": "70"
     },
     "ElectricCompany": {
       "Card_Color": "#FFFFFF",
       "City": "Electric Company",
       "Purchase_Price": "150",
       "Rent": "Dice roll * 5 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
-      "Mortgage_Price": "75"
     },
     "Uran": {
       "Card_Color": "#E8B5BB",
@@ -151,11 +143,10 @@ const card_details = {
       "Rent_with_Hotel": "750",
       "House_Price": "100",
       "Hotel_Price": "100",
-      "Mortgage_Price": "70"
     },
-    "Ulew": {
+    "Ulwe": {
       "Card_Color": "#E8B5BB",
-      "City": "Ulew",
+      "City": "Ulwe",
       "Purchase_Price": "160",
       "Rent": "12",
       "Rent_with_1_House": "60",
@@ -165,7 +156,6 @@ const card_details = {
       "Rent_with_Hotel": "900",
       "House_Price": "100",
       "Hotel_Price": "100",
-      "Mortgage_Price": "80"
     },
     "UlweStation": {
       "Card_Color": "#FFFFFF",
@@ -175,7 +165,6 @@ const card_details = {
       "Rent_with_2_Railroads": "50",
       "Rent_with_3_Railroads": "100",
       "Rent_with_4_Railroads": "200",
-      "Mortgage_Price": "100"
     },
     "PushpakNagar": {
       "Card_Color": "#FFA500",
@@ -189,15 +178,14 @@ const card_details = {
       "Rent_with_Hotel": "950",
       "House_Price": "100",
       "Hotel_Price": "100",
-      "Mortgage_Price": "90"
     },
     "Community_Chest_2":{
       "Card_Color":"#FFFFFF",
       "City":"Community Chest",
     },
-    "Dronagiri": {
+    "JNPT": {
       "Card_Color": "#FFA500",
-      "City": "Dronagiri",
+      "City": "JNPT",
       "Purchase_Price": "180",
       "Rent": "14",
       "Rent_with_1_House": "70",
@@ -207,11 +195,10 @@ const card_details = {
       "Rent_with_Hotel": "950",
       "House_Price": "100",
       "Hotel_Price": "100",
-      "Mortgage_Price": "90"
     },
-    "Taloja": {
+    "ElephantaCaves": {
       "Card_Color": "#FFA500",
-      "City": "Taloja",
+      "City": "Elephanta Caves",
       "Purchase_Price": "200",
       "Rent": "16",
       "Rent_with_1_House": "80",
@@ -221,7 +208,6 @@ const card_details = {
       "Rent_with_Hotel": "1000",
       "House_Price": "100",
       "Hotel_Price": "100",
-      "Mortgage_Price": "100"
     },
     "FreeParking":{
       "Card_Color":"#FFFFFF",
@@ -239,7 +225,6 @@ const card_details = {
       "Rent_with_Hotel": "1050",
       "House_Price": "150",
       "Hotel_Price": "150",
-      "Mortgage_Price": "110"
     },
     "Chance_2":{
       "Card_Color":"#FFFFFF",
@@ -257,7 +242,6 @@ const card_details = {
       "Rent_with_Hotel": "1050",
       "House_Price": "150",
       "Hotel_Price": "150",
-      "Mortgage_Price": "110"
     },
     "NewPanvel": {
       "Card_Color": "#ea4949",
@@ -271,7 +255,6 @@ const card_details = {
       "Rent_with_Hotel": "1100",
       "House_Price": "150",
       "Hotel_Price": "150",
-      "Mortgage_Price": "120"
     },
     "PanvelStation": {
       "Card_Color": "#FFFFFF",
@@ -281,7 +264,6 @@ const card_details = {
       "Rent_with_2_Railroads": "50",
       "Rent_with_3_Railroads": "100",
       "Rent_with_4_Railroads": "200",
-      "Mortgage_Price": "100"
     },
     "Mansarovar": {
       "Card_Color": "#F4ED62",
@@ -295,7 +277,6 @@ const card_details = {
       "Rent_with_Hotel": "1150",
       "House_Price": "150",
       "Hotel_Price": "150",
-      "Mortgage_Price": "130"
     },
     "Juinagar": {
       "Card_Color": "#F4ED62",
@@ -309,14 +290,12 @@ const card_details = {
       "Rent_with_Hotel": "1150",
       "House_Price": "150",
       "Hotel_Price": "150",
-      "Mortgage_Price": "130"
     },
     "WaterWorks": {
       "Card_Color": "#FFFFFF",
       "City": "Water Works",
       "Purchase_Price": "150",
       "Rent": "Dice roll * 5 times the roll if one utility is owned, or * 10 times the roll if both utilities are owned",
-      "Mortgage_Price": "75"
     },
     "Sanpada": {
       "Card_Color": "#F4ED62",
@@ -330,7 +309,6 @@ const card_details = {
       "Rent_with_Hotel": "1200",
       "House_Price": "150",
       "Hotel_Price": "150",
-      "Mortgage_Price": "140"
     },
     "GoToJail":{
       "Card_Color":"#FFFFFF",
@@ -348,7 +326,6 @@ const card_details = {
       "Rent_with_Hotel": "1275",
       "House_Price": "200",
       "Hotel_Price": "200",
-      "Mortgage_Price": "150"
     },
     "CBDBelapur": {
       "Card_Color": "#43B741",
@@ -362,7 +339,6 @@ const card_details = {
       "Rent_with_Hotel": "1275",
       "House_Price": "200",
       "Hotel_Price": "200",
-      "Mortgage_Price": "150"
     },
     "Community_Chest_3":{
       "Card_Color":"#FFFFFF",
@@ -380,7 +356,6 @@ const card_details = {
       "Rent_with_Hotel": "1400",
       "House_Price": "200",
       "Hotel_Price": "200",
-      "Mortgage_Price": "160"
     },
     "KhargharStation": {
       "Card_Color": "#FFFFFF",
@@ -390,7 +365,6 @@ const card_details = {
       "Rent_with_2_Railroads": "50",
       "Rent_with_3_Railroads": "100",
       "Rent_with_4_Railroads": "200",
-      "Mortgage_Price": "100"
     },
     "Chance_3":{
       "Card_Color":"#FFFFFF",
@@ -408,7 +382,6 @@ const card_details = {
       "Rent_with_Hotel": "1500",
       "House_Price": "200",
       "Hotel_Price": "200",
-      "Mortgage_Price": "175"
     },
     "LuxaryTax":{
       "Card_Color":"#FFFFFF",
@@ -427,7 +400,6 @@ const card_details = {
       "Rent_with_Hotel": "2000",
       "House_Price": "200",
       "Hotel_Price": "200",
-      "Mortgage_Price": "200"
     }
   }
 };

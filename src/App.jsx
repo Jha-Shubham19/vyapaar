@@ -103,10 +103,13 @@ function App() {
       console.log("gg",whosTurn, nextTurn, playerCount);
     }
     const handlePayRent = ({whosTurn, boughtBy, priceToPay}) => {
+      const val = allPlayersDataRef.current[whosTurn];
+      const prevBankrupt = val.bankrupt;
+      const bankrupt = (val.cashAvailable-priceToPay + val.extraMoney) < 0;
+      let thisIsBankrupt = (prevBankrupt===false && bankrupt===true);
       setAllPlayersData(prev => {
         return prev.map((val, ind)=> {
           if(ind === whosTurn) {
-            const bankrupt = (val.cashAvailable-priceToPay + val.extraMoney) < 0;
             return {...val, cashAvailable: Number(val.cashAvailable)-Number(priceToPay), bankrupt:bankrupt}
           }
           if(ind == boughtBy) {
@@ -114,7 +117,17 @@ function App() {
           }
           return val;
         })
-      })
+      });
+      console.log(thisIsBankrupt,bankrupt,prevBankrupt);
+      if(thisIsBankrupt) {
+        for(let eleNo=1 ; eleNo<=40 ; eleNo++) {
+          const {boughtBy} = allGameItemsRefs.current[eleNo];
+          if(boughtBy==whosTurn) {
+            allGameItemsRefs.current[eleNo] = {...allGameItemsRefs.current[eleNo], boughtBy:null, levelOfConstruction:-1,tripleRent:false};
+            allGameItemsRefs.current[eleNo].refToDiv.current.style.color = 'black';
+          }
+        }
+      }
     }
     const handleGiveSalary = ({whosTurn , money}) => {
       console.log("lode", money);
@@ -131,14 +144,12 @@ function App() {
         console.log("object");
         const root = createRoot(document.createElement('div'));
         root.render(<FontAwesomeIcon key={levelOfConstruction} icon={faHotel} />);
-        console.log(root);
         container.replaceChildren(root._internalRoot.containerInfo);
       }
       else {
         for(let i=0 ; i<levelOfConstruction ; i++) {
           const root = createRoot(document.createElement('div'));
           root.render(<FontAwesomeIcon key={levelOfConstruction} icon={faHouse} />);
-          console.log(root);
           container.appendChild(root._internalRoot.containerInfo);
         }
       }
@@ -156,14 +167,12 @@ function App() {
         console.log("object");
         const root = createRoot(document.createElement('div'));
         root.render(<FontAwesomeIcon key={levelOfConstruction} icon={faHotel} />);
-        console.log(root);
         container.replaceChildren(root._internalRoot.containerInfo);
       }
       else {
         for(let i=0 ; i<levelOfConstruction ; i++) {
           const root = createRoot(document.createElement('div'));
           root.render(<FontAwesomeIcon key={levelOfConstruction} icon={faHouse} />);
-          console.log(root);
           container.appendChild(root._internalRoot.containerInfo);
         }
       }
@@ -181,19 +190,44 @@ function App() {
       
       if(randomIndex===7) {
         const multiplier = currentCity == "Chance" ? 50 : 70;
+        const val = allPlayersDataRef.current[whosTurn];
+        const prevBankrupt = val.bankrupt;
+        const bankrupt = (val.cashAvailable-val.housesCount*multiplier + val.extraMoney) < 0;
+        let thisIsBankrupt = (prevBankrupt===false && bankrupt===true);
+      
         setAllPlayersData(prev => prev.map((val, ind)=> {
-          const bankrupt = (val.cashAvailable-val.housesCount*multiplier + val.extraMoney) < 0;
           return ind==whosTurn ? {...val, cashAvailable:val.cashAvailable-val.housesCount*multiplier, bankrupt:bankrupt} : val;
         }));
+        if(thisIsBankrupt) {
+          for(let eleNo=1 ; eleNo<=40 ; eleNo++) {
+            const {boughtBy} = allGameItemsRefs.current[eleNo];
+            if(boughtBy==whosTurn) {
+              allGameItemsRefs.current[eleNo] = {...allGameItemsRefs.current[eleNo], boughtBy:null, levelOfConstruction:-1,tripleRent:false};
+              allGameItemsRefs.current[eleNo].refToDiv.current.style.color = 'black';
+            }
+          }
+        }
       }
       else {
         const {money, position} = cardsList[randomIndex].thisWillHappen({currPlayerCurrentLocation});
         console.log(position,money,currPlayerCurrentLocation);
+        const val = allPlayersDataRef.current[whosTurn];
+        const prevBankrupt = val.bankrupt;
+        const bankrupt = (val.cashAvailable+money + val.extraMoney) < 0;
+        let thisIsBankrupt = (prevBankrupt===false && bankrupt===true);
         
         setAllPlayersData(prev => prev.map((val,ind) => {
-          const bankrupt = (val.cashAvailable+money + val.extraMoney) < 0;
           return ind==whosTurn ? {...val,cashAvailable:val.cashAvailable+money, currentPosition:position, bankrupt:bankrupt} : val
         }))
+        if(thisIsBankrupt) {
+          for(let eleNo=1 ; eleNo<=40 ; eleNo++) {
+            const {boughtBy} = allGameItemsRefs.current[eleNo];
+            if(boughtBy==whosTurn) {
+              allGameItemsRefs.current[eleNo] = {...allGameItemsRefs.current[eleNo], boughtBy:null, levelOfConstruction:-1,tripleRent:false};
+              allGameItemsRefs.current[eleNo].refToDiv.current.style.color = 'black';
+            }
+          }
+        }
       }
     }
     socket.on("makeDiceMovemet", handleMakeDiceMovemet, arguments);

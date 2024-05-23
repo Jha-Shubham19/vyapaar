@@ -9,9 +9,11 @@ import { useMovementFunctionality } from '../functionalities/Movement_Of_Piece_F
 import useTransaction from '../functionalities/Transaction'
 import { MyContext } from '../context/MyContext'
 import { SocketContext } from '../context/SocketContext'
+import { PlayersContext } from '../context/PlayersContext'
 
 function Dice() {
 	const {numberOnDices, myPlayerNumber, isMyTurn, setIsMyTurn} =  useContext(MyContext);
+	const {allPlayersData} = useContext(PlayersContext)
 	const {catchRandomDice} = useContext(SocketContext);
 	const [numberOnDiceForAnimation, setNumberOnDiceForAnimation] = useState([6, 6]);
 	const [beat, setBeat] = useState(false);
@@ -69,7 +71,7 @@ function Dice() {
 
 	return (
 		<div className="flex justify-center my-2 cursor-pointer">
-			<div className='flex  gap-2' onClick={isMyTurn && beat ? handleClick : () => { }}>
+			<div className='flex  gap-2' onClick={isMyTurn && beat &&  allPlayersData[myPlayerNumber-1].cashAvailable >= 0 ? handleClick : () => { }}>
 				<div key={0}><img src={diceIcons[numberOnDiceForAnimation[0]]} alt="" /></div>
 				<div key={1}><img src={diceIcons[numberOnDiceForAnimation[1]]} alt="" /></div>
 			</div>
