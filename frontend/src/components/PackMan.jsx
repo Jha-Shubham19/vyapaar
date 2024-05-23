@@ -4,19 +4,18 @@ import { PlayersContext } from '../context/PlayersContext';
 export const PackMan = ({ currentPosition, playerNumber, index }) => {
 
   const { allPlayersData } = useContext(PlayersContext);
-
-  const UserPieceIcon = `/src/media/pacman/body${playerNumber}.svg`
+  const UserPieceIcon = `/images/body${playerNumber}.svg`;
 
   
 
   const userEyesPosition =
     Number(currentPosition) < 11
-      ? "/src/media/pacman/eyes/eyesLeft.svg"
+      ? "/images/eyesLeft.svg"
       : currentPosition < 21
-        ? "/src/media/pacman/eyes/eyesUp.svg"
+        ? "/images/eyesUp.svg"
         : currentPosition < 31
-          ? "/src/media/pacman/eyes/eyesRight.svg"
-          : "/src/media/pacman/eyes/eyesDown.svg";
+          ? "/images/eyesRight.svg"
+          : "/images/eyesDown.svg";
 
   const overlappingTranslations = ['translateX(0)', 'translateX(-50%)', 'translateX(-100%)', 'translateX(-150%)'];
   const overlappingTranslationsY = ['translateY(0)', 'translateY(-50%)', 'translateY(-100%)', 'translateY(-150%)'];

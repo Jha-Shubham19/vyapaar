@@ -4,7 +4,7 @@ import { Server } from "socket.io";
 const httpServer = createServer();
 
 // Use environment variables for CORS origin
-const corsOrigin = "http://localhost:8080";
+const corsOrigin = "http://localhost:4173";
 
 const io = new Server(httpServer, {
   cors: {

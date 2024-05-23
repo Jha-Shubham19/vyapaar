@@ -16,8 +16,8 @@ export default {
       },
 
       cursor: {
-        'retro': `url('./src/media/cursor/retro-cursor.svg'), pointer`,
-        'handretro' : `url('./src/media/cursor/new-hand-cursor.svg'), pointer`
+        'retro': `url('/images/retro-cursor.svg'), pointer`,
+        'handretro' : `url('/images/new-hand-cursor.svg'), pointer`
       }
     },
   },
