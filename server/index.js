@@ -86,7 +86,12 @@ io.on('connection', (socket) => {
       // roomCounts.clear()
     });
   });
-  
+  // Use cors middleware to enable CORS
+  httpServer.use(cors({
+    origin: corsOrigin,
+    methods: ["GET", "POST"],
+    credentials: true
+  }));
   const PORT = process.env.PORT || 5000;
   httpServer.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
