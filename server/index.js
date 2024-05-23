@@ -4,7 +4,7 @@ import { Server } from "socket.io";
 const httpServer = createServer();
 
 // Use environment variables for CORS origin
-const corsOrigin = "https://vyapaar-eosin.vercel.app/";
+const corsOrigin = "https://vyapaar-eosin.vercel.app";
 
 const io = new Server(httpServer, {
   cors: {
