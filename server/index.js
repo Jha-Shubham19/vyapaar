@@ -22,8 +22,7 @@ const io = new Server(server, {
     origin: corsOrigin,
     methods: ["GET", "POST"],
     credentials: true
-  },
-  transports: ['websocket']
+  }
 });
 
 const roomCounts = new Map();
