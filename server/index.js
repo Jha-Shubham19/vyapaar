@@ -1,12 +1,28 @@
-import { createServer } from "http";
-import { Server } from "socket.io";
+import express from 'express';
+import { Server } from 'socket.io';
+import cors from 'cors';
 
-const httpServer = createServer();
+const app = express();
 
 // Use environment variables for CORS origin
 const corsOrigin = "https://vyapaar-eosin.vercel.app";
 
-const io = new Server(httpServer, {
+// Set up CORS in the Express app
+app.use(cors({
+  origin: corsOrigin,
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+app.get('/',(req,res)=>{
+  res.send("Hello world");
+})
+
+const server = app.listen(process.env.PORT || 5000, () => {
+  console.log(`Server running on port ${server.address().port}`);
+});
+
+
+const io = new Server(server, {
   cors: {
     origin: corsOrigin,
     methods: ["GET", "POST"],
@@ -87,7 +103,4 @@ io.on('connection', (socket) => {
     });
   });
   
-  const PORT = process.env.PORT || 5000;
-  httpServer.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+export default app;
